@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>HTTP 缓存头简介 | Bino&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="HTTP 缓存是现代各个浏览器广泛采用的规范，从而使得它在 web 应用上实现起来很简单。恰当的使用这些规范可以让你的应用获益匪浅，提高响应时间，降低服务器负载
+这里介绍的方法主要是使用结构和样式去实现，而并不会使用js计算高度
+HTTP 缓存头这有两个基本的缓存头，Cache-Control 和 Expires。
+设置 Cache-Control 值
+public 资源不仅可以被用户端浏览器缓存">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP 缓存头简介">
+<meta property="og:url" content="http://kuscript.com/2016/06/27/http-cache/index.html">
+<meta property="og:site_name" content="Bino's Blog">
+<meta property="og:description" content="HTTP 缓存是现代各个浏览器广泛采用的规范，从而使得它在 web 应用上实现起来很简单。恰当的使用这些规范可以让你的应用获益匪浅，提高响应时间，降低服务器负载
+这里介绍的方法主要是使用结构和样式去实现，而并不会使用js计算高度
+HTTP 缓存头这有两个基本的缓存头，Cache-Control 和 Expires。
+设置 Cache-Control 值
+public 资源不仅可以被用户端浏览器缓存">
+<meta property="og:updated_time" content="2016-06-27T07:47:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTTP 缓存头简介">
+<meta name="twitter:description" content="HTTP 缓存是现代各个浏览器广泛采用的规范，从而使得它在 web 应用上实现起来很简单。恰当的使用这些规范可以让你的应用获益匪浅，提高响应时间，降低服务器负载
+这里介绍的方法主要是使用结构和样式去实现，而并不会使用js计算高度
+HTTP 缓存头这有两个基本的缓存头，Cache-Control 和 Expires。
+设置 Cache-Control 值
+public 资源不仅可以被用户端浏览器缓存">
+  
+    <link rel="alternative" href="/atom.xml" title="Bino&#39;s Blog" type="application/atom+xml">
+  
+  
+    <!-- <link rel="shortcut icon" href="favicon.ico">  -->
+    <!-- Bino Yip  -->
+    <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="overlay"></div>
+  <div id="header-outer" class="outer">
+    <div id="profile_img">
+      <img id="circle_img" src="/css/images/banner.jpg" />
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Bino&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">专注于前端、JS、nodeJS开发</a>
+        </h2>
+      
+    </div>
+    <div id="header-menu">
+      <nav id="main-nav">
+        <ul>
+        
+          <li><a href="/"><i class="fa fa-home icon-setting"></i></a></li>
+        
+          <li><a href="/archives"><i class="fa fa-archive icon-setting"></i></a></li>
+        
+          <li><a href="/about"><i class="fa fa-user icon-setting"></i></a></li>
+        
+        
+          <li><a href="/atom.xml"><i class="fa fa-rss %> icon-setting"></i></a></li>
+        
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-http-cache" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/27/http-cache/" class="article-date">
+  <time datetime="2016-06-27T07:49:57.000Z" itemprop="datePublished">6月 27 2016</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HTTP 缓存头简介
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>HTTP 缓存是现代各个浏览器广泛采用的规范，从而使得它在 web 应用上实现起来很简单。<br>恰当的使用这些规范可以让你的应用获益匪浅，提高响应时间，降低服务器负载</p>
+<p>这里介绍的方法主要是使用结构和样式去实现，而并不会使用js计算高度</p>
+<h2 id="HTTP-缓存头"><a href="#HTTP-缓存头" class="headerlink" title="HTTP 缓存头"></a>HTTP 缓存头</h2><p>这有两个基本的缓存头，Cache-Control 和 Expires。</p>
+<h3 id="设置-Cache-Control-值"><a href="#设置-Cache-Control-值" class="headerlink" title="设置 Cache-Control 值"></a>设置 Cache-Control 值</h3><ol>
+<li><p>public 资源不仅可以被用户端浏览器缓存，还可以被能够给其他众多用户提供服务的中间代理器缓存</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Cache-Control:public</div></pre></td></tr></table></figure>
+</li>
+<li><p>private 资源会被中间代理器忽略，只能够被客户端缓存</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Cache-Control:private</div></pre></td></tr></table></figure>
+</li>
+<li><p>Cache-Control 头部的值是一个复合值，既表明了资源是 public 还是 private ,还表明了它能够缓存的时间的最大值，在它被认为过时之前。max-age 设置了一个时间跨度，表示缓存这些资源多长时间。（以秒计算）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Cache-Control:public, max-age=31536000</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>当 Cache-Control 头部打开客户端缓存，设置一个资源的 max-age 时，Expires 头部被用来确定一个具体的时间点，到时间点时缓存的资源将会失效。</p>
+<h3 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h3><p>伴随着 Cache-Control 头部的设置，Expires只是设置一个缓存资源失效的日期。浏览器将会从这个日期提前请求这个资源的新副本。在那个日期之前，浏览器使用的是本地缓存副本：</p>
+<p>注意：如果 Expires 和 max-age 同时都被设置了，那么优先考虑 max-age </p>
+<p><a href="https://github.com/lindazhang102/Personal-Blog/blob/master/http%20cache.md" title="http cache" target="_blank" rel="external">引用</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://kuscript.com/2016/06/27/http-cache/" data-id="ciqj3ignz000d2zl9fbsac3uh" class="article-share-link">Share</a>-->
+      <!-- Bino Yip baidu share start -->
+      <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
+      </div>
+      <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+      </script>
+      <!-- Bino Yip baidu share end -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/性能/">性能</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/缓存/">缓存</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/06/27/sticky-footer/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">粘连Footer的简单实现方式</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Bino Yip<br>
+      <a href="https://github.com/ken8203/hexo-theme-alberta" target="_blank">Alberta</a> by <a href="http://jaychung.tw" target="_blank">jaychung</a>. Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Thank <a href="http://subtlepatterns.com/" target="_blank">Subtlepatterns</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="//imsky.github.io/holder/holder.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

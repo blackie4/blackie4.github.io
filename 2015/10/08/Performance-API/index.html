@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Performance API | Bino&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="简介performance.timing表示一个页面事件（例如页面发送了请求）或者页面加载（例如当DOM开始加载），测量以毫秒的形式展示；支持浏览器: IE9+,Chrome11+,Firefox7+
+API列表
+performance.timing.navigationStart   当load/unload动作被触发时间
+performance.timing.redirectStart   页">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Performance API">
+<meta property="og:url" content="http://kuscript.com/2015/10/08/Performance-API/index.html">
+<meta property="og:site_name" content="Bino's Blog">
+<meta property="og:description" content="简介performance.timing表示一个页面事件（例如页面发送了请求）或者页面加载（例如当DOM开始加载），测量以毫秒的形式展示；支持浏览器: IE9+,Chrome11+,Firefox7+
+API列表
+performance.timing.navigationStart   当load/unload动作被触发时间
+performance.timing.redirectStart   页">
+<meta property="og:updated_time" content="2015-10-08T09:52:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Performance API">
+<meta name="twitter:description" content="简介performance.timing表示一个页面事件（例如页面发送了请求）或者页面加载（例如当DOM开始加载），测量以毫秒的形式展示；支持浏览器: IE9+,Chrome11+,Firefox7+
+API列表
+performance.timing.navigationStart   当load/unload动作被触发时间
+performance.timing.redirectStart   页">
+  
+    <link rel="alternative" href="/atom.xml" title="Bino&#39;s Blog" type="application/atom+xml">
+  
+  
+    <!-- <link rel="shortcut icon" href="favicon.ico">  -->
+    <!-- Bino Yip  -->
+    <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="overlay"></div>
+  <div id="header-outer" class="outer">
+    <div id="profile_img">
+      <img id="circle_img" src="/css/images/banner.jpg" />
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Bino&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">专注于前端、JS、nodeJS开发</a>
+        </h2>
+      
+    </div>
+    <div id="header-menu">
+      <nav id="main-nav">
+        <ul>
+        
+          <li><a href="/"><i class="fa fa-home icon-setting"></i></a></li>
+        
+          <li><a href="/archives"><i class="fa fa-archive icon-setting"></i></a></li>
+        
+          <li><a href="/about"><i class="fa fa-user icon-setting"></i></a></li>
+        
+        
+          <li><a href="/atom.xml"><i class="fa fa-rss %> icon-setting"></i></a></li>
+        
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Performance-API" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/08/Performance-API/" class="article-date">
+  <time datetime="2015-10-08T09:34:25.000Z" itemprop="datePublished">10月 8 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Performance API
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>performance.timing表示一个页面事件（例如页面发送了请求）或者页面加载（例如当DOM开始加载），测量以毫秒的形式展示；<br>支持浏览器: IE9+,Chrome11+,Firefox7+</p>
+<h2 id="API列表"><a href="#API列表" class="headerlink" title="API列表"></a>API列表</h2><ul>
+<li>performance.timing.navigationStart   当load/unload动作被触发时间</li>
+<li>performance.timing.redirectStart   页面重定向时的开始时间</li>
+<li>performance.timing.redirectEnd   页面重定向时的结束时间</li>
+<li>performance.timing.domComplete   页面DOM加载完时间</li>
+<li>performance.timing.responseStart   客户端收到从服务器端（或缓存、本地资源）响应回的第一个字节的数据的时刻</li>
+<li>performance.timing.responseEnd   客户端收到从服务器端（或缓存、本地资源）响应回的最后一个字节的数据的时刻</li>
+</ul>
+<h2 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h2><p>更多请查阅<a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigation_timing_API" target="_blank" rel="external">performance文档</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://kuscript.com/2015/10/08/Performance-API/" data-id="ciqj3igni00032zl9uvotteg4" class="article-share-link">Share</a>-->
+      <!-- Bino Yip baidu share start -->
+      <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
+      </div>
+      <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+      </script>
+      <!-- Bino Yip baidu share end -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/console/">console</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/performance/">performance</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/timing/">timing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/性能优化/">性能优化</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/27/sticky-footer/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          粘连Footer的简单实现方式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/06/12/h5-post-message/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">使用html5的postMessage传递消息</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Bino Yip<br>
+      <a href="https://github.com/ken8203/hexo-theme-alberta" target="_blank">Alberta</a> by <a href="http://jaychung.tw" target="_blank">jaychung</a>. Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Thank <a href="http://subtlepatterns.com/" target="_blank">Subtlepatterns</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="//imsky.github.io/holder/holder.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

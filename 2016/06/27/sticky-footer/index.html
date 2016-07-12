@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>粘连Footer的简单实现方式 | Bino&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="粘连 footer 的目的是让footer模块在内容高度小于窗口高度时footer类似positon fixed在底部；当内容高度大于窗口高度时footer类似positon static跟随内容区域后面
+这里介绍的方法主要是使用结构和样式去实现，而并不会使用js计算高度
+方案一： 在 footer 上用负的 margin-top1234567891011121314151617181920212">
+<meta property="og:type" content="article">
+<meta property="og:title" content="粘连Footer的简单实现方式">
+<meta property="og:url" content="http://kuscript.com/2016/06/27/sticky-footer/index.html">
+<meta property="og:site_name" content="Bino's Blog">
+<meta property="og:description" content="粘连 footer 的目的是让footer模块在内容高度小于窗口高度时footer类似positon fixed在底部；当内容高度大于窗口高度时footer类似positon static跟随内容区域后面
+这里介绍的方法主要是使用结构和样式去实现，而并不会使用js计算高度
+方案一： 在 footer 上用负的 margin-top1234567891011121314151617181920212">
+<meta property="og:updated_time" content="2016-06-27T06:55:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="粘连Footer的简单实现方式">
+<meta name="twitter:description" content="粘连 footer 的目的是让footer模块在内容高度小于窗口高度时footer类似positon fixed在底部；当内容高度大于窗口高度时footer类似positon static跟随内容区域后面
+这里介绍的方法主要是使用结构和样式去实现，而并不会使用js计算高度
+方案一： 在 footer 上用负的 margin-top1234567891011121314151617181920212">
+  
+    <link rel="alternative" href="/atom.xml" title="Bino&#39;s Blog" type="application/atom+xml">
+  
+  
+    <!-- <link rel="shortcut icon" href="favicon.ico">  -->
+    <!-- Bino Yip  -->
+    <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="overlay"></div>
+  <div id="header-outer" class="outer">
+    <div id="profile_img">
+      <img id="circle_img" src="/css/images/banner.jpg" />
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Bino&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">专注于前端、JS、nodeJS开发</a>
+        </h2>
+      
+    </div>
+    <div id="header-menu">
+      <nav id="main-nav">
+        <ul>
+        
+          <li><a href="/"><i class="fa fa-home icon-setting"></i></a></li>
+        
+          <li><a href="/archives"><i class="fa fa-archive icon-setting"></i></a></li>
+        
+          <li><a href="/about"><i class="fa fa-user icon-setting"></i></a></li>
+        
+        
+          <li><a href="/atom.xml"><i class="fa fa-rss %> icon-setting"></i></a></li>
+        
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-sticky-footer" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/27/sticky-footer/" class="article-date">
+  <time datetime="2016-06-27T06:09:57.000Z" itemprop="datePublished">6月 27 2016</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      粘连Footer的简单实现方式
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>粘连 footer 的目的是让footer模块在内容高度小于窗口高度时footer类似positon fixed在底部；<br>当内容高度大于窗口高度时footer类似positon static跟随内容区域后面</p>
+<p>这里介绍的方法主要是使用结构和样式去实现，而并不会使用js计算高度</p>
+<h2 id="方案一：-在-footer-上用负的-margin-top"><a href="#方案一：-在-footer-上用负的-margin-top" class="headerlink" title="方案一： 在 footer 上用负的 margin-top"></a>方案一： 在 footer 上用负的 margin-top</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">// 结构</div><div class="line"> 	&lt;body&gt;</div><div class="line">  &lt;div class=<span class="string">"content"</span>&gt;</div><div class="line">    &lt;div class=<span class="string">"content-inner"</span>&gt;</div><div class="line">      content</div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">  &lt;footer class=<span class="string">"footer"</span>&gt;&lt;/footer&gt;</div><div class="line">&lt;/body&gt;</div><div class="line"></div><div class="line">// 样式</div><div class="line">html, body &#123;</div><div class="line">	height: 100%;</div><div class="line">	margin: 0;</div><div class="line">&#125;</div><div class="line">.content &#123;</div><div class="line">	min-height: 100%;</div><div class="line">&#125;</div><div class="line">.content-inner &#123;</div><div class="line">	padding: 20px;</div><div class="line">	padding-bottom: 50px;</div><div class="line">&#125;</div><div class="line">.footer &#123;</div><div class="line">	height: 50px;</div><div class="line">	margin-top: -50px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="/page/footer.html" title="flex footer">DEMO示例</a></p>
+<h2 id="方案二：-在-wrapper-上用负的-margin-bottom"><a href="#方案二：-在-wrapper-上用负的-margin-bottom" class="headerlink" title="方案二： 在 wrapper 上用负的 margin-bottom"></a>方案二： 在 wrapper 上用负的 margin-bottom</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">// 结构</div><div class="line">   &lt;body&gt;</div><div class="line">&lt;div class=<span class="string">"wrapper"</span>&gt;</div><div class="line"></div><div class="line">    content</div><div class="line"></div><div class="line">	&lt;div class=<span class="string">"push"</span>&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;footer class=<span class="string">"footer"</span>&gt;&lt;/footer&gt;</div><div class="line">&lt;/body&gt;</div><div class="line"></div><div class="line">// 样式</div><div class="line">html, body &#123;</div><div class="line">	height: 100%;</div><div class="line">	margin: 0;</div><div class="line">&#125;</div><div class="line">.wrapper &#123;</div><div class="line">	min-height: 100%;</div><div class="line">	margin-bottom: -50px;</div><div class="line">&#125;</div><div class="line">.footer, .push &#123;</div><div class="line">	height: 50px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://kuscript.com/2016/06/27/sticky-footer/" data-id="ciqj3igo8000o2zl9zumff8cv" class="article-share-link">Share</a>-->
+      <!-- Bino Yip baidu share start -->
+      <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
+      </div>
+      <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+      </script>
+      <!-- Bino Yip baidu share end -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/footer/">footer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/粘连/">粘连</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/页脚/">页脚</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/27/http-cache/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          HTTP 缓存头简介
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/08/Performance-API/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Performance API</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Bino Yip<br>
+      <a href="https://github.com/ken8203/hexo-theme-alberta" target="_blank">Alberta</a> by <a href="http://jaychung.tw" target="_blank">jaychung</a>. Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Thank <a href="http://subtlepatterns.com/" target="_blank">Subtlepatterns</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="//imsky.github.io/holder/holder.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

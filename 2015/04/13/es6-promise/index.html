@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ES6 promise示例 | Bino&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="ES6 promise实例：
+简介promise的出现是为了解决js回调嵌套的问题。当嵌套多起来的时候，代码变得凌乱而promise就是将嵌套回调转换成易于理解的线性逻辑！
+示例代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657&amp;lt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6 promise示例">
+<meta property="og:url" content="http://kuscript.com/2015/04/13/es6-promise/index.html">
+<meta property="og:site_name" content="Bino's Blog">
+<meta property="og:description" content="ES6 promise实例：
+简介promise的出现是为了解决js回调嵌套的问题。当嵌套多起来的时候，代码变得凌乱而promise就是将嵌套回调转换成易于理解的线性逻辑！
+示例代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657&amp;lt;">
+<meta property="og:updated_time" content="2015-04-14T10:31:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6 promise示例">
+<meta name="twitter:description" content="ES6 promise实例：
+简介promise的出现是为了解决js回调嵌套的问题。当嵌套多起来的时候，代码变得凌乱而promise就是将嵌套回调转换成易于理解的线性逻辑！
+示例代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657&amp;lt;">
+  
+    <link rel="alternative" href="/atom.xml" title="Bino&#39;s Blog" type="application/atom+xml">
+  
+  
+    <!-- <link rel="shortcut icon" href="favicon.ico">  -->
+    <!-- Bino Yip  -->
+    <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="overlay"></div>
+  <div id="header-outer" class="outer">
+    <div id="profile_img">
+      <img id="circle_img" src="/css/images/banner.jpg" />
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Bino&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">专注于前端、JS、nodeJS开发</a>
+        </h2>
+      
+    </div>
+    <div id="header-menu">
+      <nav id="main-nav">
+        <ul>
+        
+          <li><a href="/"><i class="fa fa-home icon-setting"></i></a></li>
+        
+          <li><a href="/archives"><i class="fa fa-archive icon-setting"></i></a></li>
+        
+          <li><a href="/about"><i class="fa fa-user icon-setting"></i></a></li>
+        
+        
+          <li><a href="/atom.xml"><i class="fa fa-rss %> icon-setting"></i></a></li>
+        
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-es6-promise" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/04/13/es6-promise/" class="article-date">
+  <time datetime="2015-04-13T10:26:25.000Z" itemprop="datePublished">4月 13 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ES6 promise示例
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>ES6 promise实例：</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>promise的出现是为了解决js回调嵌套的问题。当嵌套多起来的时候，代码变得凌乱<br>而promise就是将嵌套回调转换成易于理解的线性逻辑！</p>
+<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">// 异步请求方法</div><div class="line"><span class="keyword">function</span> searchTwitter(resolve, reject) &#123;</div><div class="line">    var url, xhr, results, promise;</div><div class="line">    url = <span class="string">'/api/lucky.roll?activityId=5'</span>;</div><div class="line">    xhr = new XMLHttpRequest();</div><div class="line">    xhr.open(<span class="string">'GET'</span>, url, <span class="literal">true</span>);</div><div class="line">    xhr.onload = <span class="keyword">function</span> (e) &#123;</div><div class="line">        <span class="keyword">if</span> (this.status === 200) &#123;</div><div class="line">            results = JSON.parse(this.responseText);</div><div class="line">            resolve(results);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    xhr.onerror = <span class="keyword">function</span> (e) &#123;</div><div class="line">        reject(e);</div><div class="line">    &#125;;</div><div class="line">    xhr.send();</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 我们假设step1, step2, step3都是ajax调用后端或者是</div><div class="line">// 在Node.js上查询数据库的异步操作</div><div class="line">// 每个步骤都有对应的失败和成功处理回调</div><div class="line">// 需求是这样，step1、step2、step3必须按顺序执行</div><div class="line"><span class="keyword">function</span> step1(resolve, reject) &#123;</div><div class="line">    console.log(<span class="string">'步骤一：执行'</span>);</div><div class="line">    searchTwitter(resolve, reject);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">function</span> step2(resolve, reject) &#123;</div><div class="line">    console.log(<span class="string">'步骤二：执行'</span>);</div><div class="line">    searchTwitter(resolve, reject);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">function</span> step3(resolve, reject) &#123;</div><div class="line">    console.log(<span class="string">'步骤三：执行'</span>);</div><div class="line">    searchTwitter(resolve, reject);</div><div class="line">&#125;</div><div class="line"></div><div class="line">new Promise(step1).then(<span class="keyword">function</span>(val)&#123;</div><div class="line">    console.info(val);</div><div class="line">    <span class="built_in">return</span> new Promise(step2);</div><div class="line">&#125;).then(<span class="keyword">function</span>(val)&#123;</div><div class="line">    console.info(val);</div><div class="line">    <span class="built_in">return</span> new Promise(step3);</div><div class="line">&#125;).then(<span class="keyword">function</span>(val)&#123;</div><div class="line">    console.info(val);</div><div class="line">    <span class="built_in">return</span> val;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// 执行输出</div><div class="line">// 步骤一：执行</div><div class="line">// Object &#123;data: Object, code: 200, msg: <span class="string">"Ok"</span>&#125;</div><div class="line">// 步骤二：执行</div><div class="line">// Object &#123;data: Object, code: 200, msg: <span class="string">"Ok"</span>&#125;</div><div class="line">// 步骤三：执行</div><div class="line">// Object &#123;data: Object, code: 200, msg: <span class="string">"Ok"</span>&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://kuscript.com/2015/04/13/es6-promise/" data-id="ciqj3ignq00062zl9qq8gpxmb" class="article-share-link">Share</a>-->
+      <!-- Bino Yip baidu share start -->
+      <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
+      </div>
+      <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+      </script>
+      <!-- Bino Yip baidu share end -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es6/">es6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/promise/">promise</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/06/12/h5-post-message/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          使用html5的postMessage传递消息
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/04/13/ie-mode-check/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">IE10/IE11特性检测</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Bino Yip<br>
+      <a href="https://github.com/ken8203/hexo-theme-alberta" target="_blank">Alberta</a> by <a href="http://jaychung.tw" target="_blank">jaychung</a>. Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Thank <a href="http://subtlepatterns.com/" target="_blank">Subtlepatterns</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="//imsky.github.io/holder/holder.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

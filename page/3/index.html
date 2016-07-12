@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Bino&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="html、css、js、nodejs，前端开发、web开发、f2e">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bino's Blog">
+<meta property="og:url" content="http://kuscript.com/page/3/index.html">
+<meta property="og:site_name" content="Bino's Blog">
+<meta property="og:description" content="html、css、js、nodejs，前端开发、web开发、f2e">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bino's Blog">
+<meta name="twitter:description" content="html、css、js、nodejs，前端开发、web开发、f2e">
+  
+    <link rel="alternative" href="/atom.xml" title="Bino&#39;s Blog" type="application/atom+xml">
+  
+  
+    <!-- <link rel="shortcut icon" href="favicon.ico">  -->
+    <!-- Bino Yip  -->
+    <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="overlay"></div>
+  <div id="header-outer" class="outer">
+    <div id="profile_img">
+      <img id="circle_img" src="/css/images/banner.jpg" />
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Bino&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">专注于前端、JS、nodeJS开发</a>
+        </h2>
+      
+    </div>
+    <div id="header-menu">
+      <nav id="main-nav">
+        <ul>
+        
+          <li><a href="/"><i class="fa fa-home icon-setting"></i></a></li>
+        
+          <li><a href="/archives"><i class="fa fa-archive icon-setting"></i></a></li>
+        
+          <li><a href="/about"><i class="fa fa-user icon-setting"></i></a></li>
+        
+        
+          <li><a href="/atom.xml"><i class="fa fa-rss %> icon-setting"></i></a></li>
+        
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-radio-beauty" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/02/radio-beauty/" class="article-date">
+  <time datetime="2015-03-02T05:35:25.000Z" itemprop="datePublished">3月 2 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/02/radio-beauty/">表单美化之Radio</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>表单美化之Radio：</p>
+<ol>
+<li><p>样式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> /*单选框*/</div><div class="line">.label_radio &#123; display: inline-block; cursor: pointer; line-height: 20px; min-height: 20px; margin: 8px 25px 0 0;&#125;</div><div class="line">.label_radio input&#123; margin-right: 5px; &#125;</div><div class="line">.has-js .label_radio&#123;padding-left: 24px; &#125;</div><div class="line">.has-js .label_radio&#123;background-image: url(dev_icon.png); background-repeat: no-repeat;&#125;</div><div class="line">.has-js .label_radio&#123;background-position: 0 -387px; &#125;</div><div class="line">.has-js .label_radio_on&#123; background-position: 0 -368px; &#125;</div><div class="line">.has-js .label_radio input&#123; position: absolute; left: -9999px; &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>结构</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;label <span class="keyword">for</span>=<span class="string">"chargeRadio1"</span> class=<span class="string">"label_radio charge_radio"</span>&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"radio"</span> value=<span class="string">"1"</span> id=<span class="string">"chargeRadio1"</span> name=<span class="string">"chargeType"</span> checked /&gt;完全免费</div><div class="line">&lt;/label&gt;</div><div class="line">&lt;label <span class="keyword">for</span>=<span class="string">"chargeRadio2"</span> class=<span class="string">"label_radio charge_radio"</span>&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"radio"</span> value=<span class="string">"2"</span> id=<span class="string">"chargeRadio2"</span> name=<span class="string">"chargeType"</span> /&gt;部分功能收费</div><div class="line">&lt;/label&gt;</div><div class="line">&lt;label <span class="keyword">for</span>=<span class="string">"chargeRadio3"</span> class=<span class="string">"label_radio charge_radio"</span>&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"radio"</span> value=<span class="string">"3"</span> id=<span class="string">"chargeRadio3"</span> name=<span class="string">"chargeType"</span> /&gt;部分内容收费</div><div class="line">&lt;/label&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">// 基于jquery</div><div class="line">$(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    // 单选框模拟</div><div class="line">    $(<span class="string">'body'</span>).addClass(<span class="string">'has-js'</span>);</div><div class="line">    $(<span class="string">'.charge_radio'</span>).on(<span class="string">'click'</span>, <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">        <span class="built_in">set</span>Redio($(<span class="string">'.charge_radio'</span>))</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 页面单选框（模拟UI）</div><div class="line">     */</div><div class="line">    <span class="keyword">function</span> <span class="built_in">set</span>Redio(<span class="variable">$labels</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (<span class="variable">$labels</span>.find(<span class="string">'input'</span>).length) &#123;</div><div class="line">            <span class="variable">$labels</span>.each(<span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">                $(this).removeClass(<span class="string">'label_radio_on'</span>);</div><div class="line">            &#125;);</div><div class="line">            <span class="variable">$labels</span>.find(<span class="string">'input:checked'</span>).each(<span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">                $(this).parent(<span class="string">'label'</span>).addClass(<span class="string">'label_radio_on'</span>);</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><a href="/page/radio.html" title="radio demo">DEMO示例</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://kuscript.com/2015/03/02/radio-beauty/" data-id="ciqj3igo5000m2zl95uqvue9l" class="article-share-link">Share</a>-->
+      <!-- Bino Yip baidu share start -->
+      <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
+      </div>
+      <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+      </script>
+      <!-- Bino Yip baidu share end -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/radio/">radio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/美化/">美化</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-AjaxFileUpload-IE8-problems" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/28/AjaxFileUpload-IE8-problems/" class="article-date">
+  <time datetime="2015-02-28T03:36:57.000Z" itemprop="datePublished">2月 28 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/28/AjaxFileUpload-IE8-problems/">AjaxFileUpload IE8 问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>因为IE安全限制问题，没有点击file的浏览按钮选择文件都不让上传。一定要手动点击，js触发click事件是无效的</p>
+</li>
+<li><p>对于json类型的返回值，ie会提示下载文件，而不能由AjaxFileUpload的success handler捕获。方案：把response的content-type由application/json改为text/html或text/plain。</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://kuscript.com/2015/02/28/AjaxFileUpload-IE8-problems/" data-id="ciqj3ignd00012zl9vaqwes1q" class="article-share-link">Share</a>-->
+      <!-- Bino Yip baidu share start -->
+      <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
+      </div>
+      <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+      </script>
+      <!-- Bino Yip baidu share end -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IE/">IE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/异步上传/">异步上传</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-classic-move-block" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/16/classic-move-block/" class="article-date">
+  <time datetime="2015-01-16T11:35:25.000Z" itemprop="datePublished">1月 16 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/16/classic-move-block/">JS经典块移动实例</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>经典的 块移动 实例代码， 亲自验证，使用率极高：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">// <span class="variable">$box</span> 块对象</div><div class="line">var move = <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    var _x, _y, _winW, _winH,</div><div class="line">        _move = <span class="literal">false</span>,</div><div class="line">        _boxW =  <span class="variable">$box</span>.width(),</div><div class="line">        _boxH =  <span class="variable">$box</span>.height();</div><div class="line"></div><div class="line">    // 块移动</div><div class="line">    <span class="variable">$box</span>.off(<span class="string">'.box'</span>).on(&#123;</div><div class="line">        <span class="string">'click.box'</span>: <span class="keyword">function</span>(e)&#123;</div><div class="line">                e.preventDefault();</div><div class="line">            &#125;,</div><div class="line">        <span class="string">'mousedown.box'</span>: <span class="keyword">function</span>(e)&#123;</div><div class="line">                e.preventDefault();</div><div class="line">                _move=<span class="literal">true</span>;</div><div class="line">                _x=e.pageX-parseInt(pwa.<span class="variable">$box</span>.css(<span class="string">"left"</span>));</div><div class="line">                _y=e.pageY-parseInt(pwa.<span class="variable">$box</span>.css(<span class="string">"top"</span>));</div><div class="line">                _winW = tr.getW<span class="keyword">in</span>Size().width;</div><div class="line">                _winH = tr.getW<span class="keyword">in</span>Size().height;</div><div class="line">            &#125;</div><div class="line">    &#125;);</div><div class="line">    $(document).off(<span class="string">'.box'</span>).on(&#123;</div><div class="line">        <span class="string">'mousemove.box'</span>: <span class="keyword">function</span>(e)&#123;</div><div class="line">                // e.preventDefault();</div><div class="line">                <span class="keyword">if</span>(_move)&#123;</div><div class="line">                    var x=e.pageX-_x;</div><div class="line">                    var y=e.pageY-_y;</div><div class="line">                    <span class="keyword">if</span>(x &lt; 0) x = 0;</div><div class="line">                    <span class="keyword">if</span>(y &lt; 0) y = 0;</div><div class="line">                    <span class="keyword">if</span>(_winW &amp;&amp; x &gt; _winW-_boxW) x = _winW - _boxW;</div><div class="line">                    <span class="keyword">if</span>(_winH &amp;&amp; y &gt; _winH-_boxH) y = _winH - _boxH;</div><div class="line">                    pwa.<span class="variable">$box</span>.css(&#123;top:y,left:x&#125;);</div><div class="line">                &#125;</div><div class="line">            &#125;,</div><div class="line">        <span class="string">'mouseup.box'</span>: <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">                _move=<span class="literal">false</span>;</div><div class="line">            &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://kuscript.com/2015/01/16/classic-move-block/" data-id="ciqj3igno00052zl9btk6gphk" class="article-share-link">Share</a>-->
+      <!-- Bino Yip baidu share start -->
+      <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
+      </div>
+      <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+      </script>
+      <!-- Bino Yip baidu share end -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/实例/">实例</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-sublime-intall-sass-highlighting" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/15/sublime-intall-sass-highlighting/" class="article-date">
+  <time datetime="2015-01-15T06:01:36.000Z" itemprop="datePublished">1月 15 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/15/sublime-intall-sass-highlighting/">Sublime Text 安装sass语法高亮</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>ctrl+shift+p (Win, Linux) or cmd+shift+p (OS X) 打开Package Control，搜索sass，点击安装</li>
+<li>关闭sublime，重新打开.scss文件</li>
+<li>Menu &gt; View &gt; Syntax &gt; Open all with current extension as… &gt; Sass</li>
+</ol>
+<p><a href="http://lexsheehan.blogspot.com/2014/05/scss-syntax-highlighting-in-sublime-text.html" target="_blank" rel="external">原文参考</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://kuscript.com/2015/01/15/sublime-intall-sass-highlighting/" data-id="ciqj3igo9000p2zl9yq5q4eq4" class="article-share-link">Share</a>-->
+      <!-- Bino Yip baidu share start -->
+      <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
+      </div>
+      <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+      </script>
+      <!-- Bino Yip baidu share end -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sublime-Text/">Sublime Text</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sass/">sass</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-js-economize-function" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/12/08/js-economize-function/" class="article-date">
+  <time datetime="2013-12-08T03:27:51.000Z" itemprop="datePublished">12月 8 2013</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/12/08/js-economize-function/">Javascript性能优化之函数节流</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>函数节流的原理很简单：<br>    通过一个定时器，阻断连续重复的函数调用。 例如： onresize 或 onmousemove 事件监听函数。<br>由于在短时间内连续执行多次，这样频繁的操作DOM，对性能影响是很大的！<br>具体实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var processor = &#123;    </div><div class="line">  	timeoutId: null,      </div><div class="line">	performProcessing: <span class="function"><span class="title">function</span></span>()&#123;    </div><div class="line">		// 要执行的代码    </div><div class="line">	&#125;,    </div><div class="line"> 	process: <span class="function"><span class="title">function</span></span>()&#123;          </div><div class="line">		clearTimeout(this.timeoutId);        </div><div class="line"> 		this.timeoutId  = <span class="built_in">set</span>Timeout(<span class="function"><span class="title">function</span></span>()&#123;          </div><div class="line">			processor.performProcessing();          </div><div class="line">		&#125;, 100);  </div><div class="line"> 	&#125;  </div><div class="line">&#125;;</div><div class="line"></div><div class="line">//调用 </div><div class="line">processor.process();</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://kuscript.com/2013/12/08/js-economize-function/" data-id="ciqj3igo4000k2zl9b8ymw6c7" class="article-share-link">Share</a>-->
+      <!-- Bino Yip baidu share start -->
+      <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
+      </div>
+      <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+      </script>
+      <!-- Bino Yip baidu share end -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/函数节流/">函数节流</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/性能优化/">性能优化</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+    </nav>
+  
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Bino Yip<br>
+      <a href="https://github.com/ken8203/hexo-theme-alberta" target="_blank">Alberta</a> by <a href="http://jaychung.tw" target="_blank">jaychung</a>. Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Thank <a href="http://subtlepatterns.com/" target="_blank">Subtlepatterns</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="//imsky.github.io/holder/holder.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

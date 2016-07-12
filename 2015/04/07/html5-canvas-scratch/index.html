@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>HTML5 Canvas 涂抹效果 | Bino&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="移动端开发经常会遇到涂抹效果的运用。 今天我们用比较简洁的方法来实现这个效果
+1.html结构1234&amp;lt;div class=&quot;scratch&quot;&amp;gt;  &amp;lt;img src=&quot;img/scratch_img.jpg&quot; alt=&quot;&quot; width=&quot;200&quot; height=&quot;300&quot;&amp;gt;  &amp;lt;canvas id=&quot;scratchCanvas&quot; class=&quot;scratch-canv">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5 Canvas 涂抹效果">
+<meta property="og:url" content="http://kuscript.com/2015/04/07/html5-canvas-scratch/index.html">
+<meta property="og:site_name" content="Bino's Blog">
+<meta property="og:description" content="移动端开发经常会遇到涂抹效果的运用。 今天我们用比较简洁的方法来实现这个效果
+1.html结构1234&amp;lt;div class=&quot;scratch&quot;&amp;gt;  &amp;lt;img src=&quot;img/scratch_img.jpg&quot; alt=&quot;&quot; width=&quot;200&quot; height=&quot;300&quot;&amp;gt;  &amp;lt;canvas id=&quot;scratchCanvas&quot; class=&quot;scratch-canv">
+<meta property="og:updated_time" content="2015-04-07T08:40:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML5 Canvas 涂抹效果">
+<meta name="twitter:description" content="移动端开发经常会遇到涂抹效果的运用。 今天我们用比较简洁的方法来实现这个效果
+1.html结构1234&amp;lt;div class=&quot;scratch&quot;&amp;gt;  &amp;lt;img src=&quot;img/scratch_img.jpg&quot; alt=&quot;&quot; width=&quot;200&quot; height=&quot;300&quot;&amp;gt;  &amp;lt;canvas id=&quot;scratchCanvas&quot; class=&quot;scratch-canv">
+  
+    <link rel="alternative" href="/atom.xml" title="Bino&#39;s Blog" type="application/atom+xml">
+  
+  
+    <!-- <link rel="shortcut icon" href="favicon.ico">  -->
+    <!-- Bino Yip  -->
+    <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="overlay"></div>
+  <div id="header-outer" class="outer">
+    <div id="profile_img">
+      <img id="circle_img" src="/css/images/banner.jpg" />
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Bino&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">专注于前端、JS、nodeJS开发</a>
+        </h2>
+      
+    </div>
+    <div id="header-menu">
+      <nav id="main-nav">
+        <ul>
+        
+          <li><a href="/"><i class="fa fa-home icon-setting"></i></a></li>
+        
+          <li><a href="/archives"><i class="fa fa-archive icon-setting"></i></a></li>
+        
+          <li><a href="/about"><i class="fa fa-user icon-setting"></i></a></li>
+        
+        
+          <li><a href="/atom.xml"><i class="fa fa-rss %> icon-setting"></i></a></li>
+        
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-html5-canvas-scratch" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/04/07/html5-canvas-scratch/" class="article-date">
+  <time datetime="2015-04-07T06:31:57.000Z" itemprop="datePublished">4月 7 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HTML5 Canvas 涂抹效果
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>移动端开发经常会遇到涂抹效果的运用。 今天我们用比较简洁的方法来实现这个效果</p>
+<p>1.html结构<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div class=<span class="string">"scratch"</span>&gt;</div><div class="line">  &lt;img src=<span class="string">"img/scratch_img.jpg"</span> alt=<span class="string">""</span> width=<span class="string">"200"</span> height=<span class="string">"300"</span>&gt;</div><div class="line">  &lt;canvas id=<span class="string">"scratchCanvas"</span> class=<span class="string">"scratch-canvas"</span> width=<span class="string">"200"</span> height=<span class="string">"300"</span>&gt;&lt;/canvas&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>2.css样式，利用绝对定位将canvas覆盖在图片之上<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">.scratch&#123;position: relative; width: 200px; height: 300px; margin: 30px auto 0; border: 1px solid <span class="comment">#ccc; &#125;</span></div><div class="line">.scratch-canvas&#123;position: absolute; left: 0; top: 0;&#125;</div></pre></td></tr></table></figure></p>
+<p>3.js脚本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div></pre></td><td class="code"><pre><div class="line">init();</div><div class="line"></div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">init</span></span>() &#123;</div><div class="line">  </div><div class="line">  var canvas = document.getElementById(<span class="string">"scratchCanvas"</span>),</div><div class="line">    ctx = canvas.getContext(<span class="string">"2d"</span>);</div><div class="line"></div><div class="line">  var x1, y1, a = 20;</div><div class="line">  var ratio = 0.5;</div><div class="line">  var path = 0;</div><div class="line"></div><div class="line">  canvas.width = 200;</div><div class="line">  canvas.height = 300;</div><div class="line"></div><div class="line">  var img = new Image();</div><div class="line">  img.onload = <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    ctx.drawImage(img,0,0,canvas.width,canvas.height);</div><div class="line">    tapClip();</div><div class="line">  &#125;</div><div class="line">  img.src = <span class="string">"img/scratch_mask.png"</span>;</div><div class="line"></div><div class="line"></div><div class="line">  <span class="keyword">function</span> <span class="function"><span class="title">tapClip</span></span>()&#123;</div><div class="line"></div><div class="line">    ctx.lineCap = <span class="string">"round"</span>;   // 圆形的线帽</div><div class="line">    ctx.lineJoin = <span class="string">"round"</span>;  // 两条线条交汇时，创建圆形边角</div><div class="line">    ctx.lineWidth = a*2;</div><div class="line">    ctx.globalCompositeOperation = <span class="string">"destination-out"</span>;  // 合成操作 重叠的区域变成透明</div><div class="line">        </div><div class="line">    canvas.addEventListener(<span class="string">'touchstart'</span> , <span class="keyword">function</span>(e)&#123;</div><div class="line">      e.preventDefault();</div><div class="line">      //alert(e.clientY);</div><div class="line">      // var canvaleft = document.body.clientWidth/2 - 400,</div><div class="line">      //  canvatop = document.body.clientHeight/2 - 245,</div><div class="line">      //  ecx = e.clientX + 0.27 * (e.clientX - document.body.clientWidth/2 + 230),</div><div class="line">      //  ecy = e.clientY + 0.27 * (e.clientY - document.body.clientHeight/2 + 60);</div><div class="line"></div><div class="line">      // x1 = hastouch ? e.targetTouches[0].pageX : (ecx-canvaleft);</div><div class="line">      // y1 = hastouch ? e.targetTouches[0].pageY : (ecy-canvatop);</div><div class="line">      x1 = e.targetTouches[0].pageX - 60;</div><div class="line">      y1 = e.targetTouches[0].pageY - 30;</div><div class="line"></div><div class="line">      //alert(document.body.clientWidth/2);</div><div class="line">      ctx.save();</div><div class="line">      ctx.beginPath()</div><div class="line">      ctx.arc(x1, y1, 1, 0, 2*Math.PI);</div><div class="line">      ctx.fill();</div><div class="line">      ctx.restore();</div><div class="line">      </div><div class="line">      canvas.addEventListener(<span class="string">'touchmove'</span> , tapmoveHandler);</div><div class="line">      canvas.addEventListener(<span class="string">'touchend'</span> , <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">        canvas.removeEventListener(<span class="string">'touchmove'</span> , tapmoveHandler);</div><div class="line">      &#125;);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">      <span class="keyword">function</span> tapmoveHandler(e)&#123;</div><div class="line">        <span class="keyword">if</span>(path&gt;2*canvas.width*canvas.height*ratio) <span class="built_in">return</span>;</div><div class="line">        e.preventDefault();</div><div class="line"></div><div class="line">        // canvaleft=document.body.clientWidth/2-400;</div><div class="line">        // canvatop=document.body.clientHeight/2-245;</div><div class="line">        // ecx = e.clientX+0.27*(e.clientX-document.body.clientWidth/2+ 230);</div><div class="line">        // ecy = e.clientY+0.27*(e.clientY-document.body.clientHeight/2+ 60);</div><div class="line"></div><div class="line">        x2 = e.targetTouches[0].pageX - 60;</div><div class="line">        y2 = e.targetTouches[0].pageY - 30;</div><div class="line">          </div><div class="line">        ctx.save();</div><div class="line">        ctx.moveTo(x1,y1);</div><div class="line">        ctx.lineTo(x2,y2);</div><div class="line">        ctx.stroke();</div><div class="line">        ctx.restore()</div><div class="line">            </div><div class="line">        path += ((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2))^0.5*a;</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(path &gt; 2*canvas.width*canvas.height*ratio)&#123; </div><div class="line">          // alert(124);</div><div class="line">          canvas.removeEventListener(<span class="string">'touchmove'</span>);</div><div class="line">          canvas.removeEventListener(<span class="string">'touchend'</span>);</div><div class="line">          // $(<span class="string">'#scratchCanvas'</span>).fadeOut(1000,<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">            // $(<span class="string">'#p5513a81e60a92_arrow_up'</span>).show();</div><div class="line">            // unlock(<span class="string">"p5513a81e60a92"</span>);</div><div class="line">          // &#125;);</div><div class="line">          </div><div class="line">          canvas.style.display = <span class="string">'none'</span></div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        x1 = x2;</div><div class="line">        y1 = y2;</div><div class="line">      &#125;</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>###这里重点运用的是：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 合成操作 重叠的区域变成透明</div><div class="line">ctx.globalCompositeOperation = <span class="string">"destination-out"</span>;</div></pre></td></tr></table></figure></p>
+<p><a href="/page/scratch.html" title="涂抹DEMO">DEMO示例</a> (*注意： 在chrome手机模式下或用手机打开查看效果)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://kuscript.com/2015/04/07/html5-canvas-scratch/" data-id="ciqj3igny000c2zl90f8w6mbp" class="article-share-link">Share</a>-->
+      <!-- Bino Yip baidu share start -->
+      <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
+      </div>
+      <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+      </script>
+      <!-- Bino Yip baidu share end -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Canvas/">Canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/涂抹/">涂抹</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/04/07/html5-shake-mobile/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          分享两个HTML5 API
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/03/05/flexible-case/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">移动端自适应方案</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Bino Yip<br>
+      <a href="https://github.com/ken8203/hexo-theme-alberta" target="_blank">Alberta</a> by <a href="http://jaychung.tw" target="_blank">jaychung</a>. Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Thank <a href="http://subtlepatterns.com/" target="_blank">Subtlepatterns</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="//imsky.github.io/holder/holder.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

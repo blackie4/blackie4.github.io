@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Bino&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="html、css、js、nodejs，前端开发、web开发、f2e">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bino's Blog">
+<meta property="og:url" content="http://kuscript.com/index.html">
+<meta property="og:site_name" content="Bino's Blog">
+<meta property="og:description" content="html、css、js、nodejs，前端开发、web开发、f2e">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bino's Blog">
+<meta name="twitter:description" content="html、css、js、nodejs，前端开发、web开发、f2e">
+  
+    <link rel="alternative" href="/atom.xml" title="Bino&#39;s Blog" type="application/atom+xml">
+  
+  
+    <!-- <link rel="shortcut icon" href="favicon.ico">  -->
+    <!-- Bino Yip  -->
+    <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="overlay"></div>
+  <div id="header-outer" class="outer">
+    <div id="profile_img">
+      <img id="circle_img" src="/css/images/banner.jpg" />
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Bino&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">专注于前端、JS、nodeJS开发</a>
+        </h2>
+      
+    </div>
+    <div id="header-menu">
+      <nav id="main-nav">
+        <ul>
+        
+          <li><a href="/"><i class="fa fa-home icon-setting"></i></a></li>
+        
+          <li><a href="/archives"><i class="fa fa-archive icon-setting"></i></a></li>
+        
+          <li><a href="/about"><i class="fa fa-user icon-setting"></i></a></li>
+        
+        
+          <li><a href="/atom.xml"><i class="fa fa-rss %> icon-setting"></i></a></li>
+        
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-http-cache" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/27/http-cache/" class="article-date">
+  <time datetime="2016-06-27T07:49:57.000Z" itemprop="datePublished">6月 27 2016</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/27/http-cache/">HTTP 缓存头简介</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>HTTP 缓存是现代各个浏览器广泛采用的规范，从而使得它在 web 应用上实现起来很简单。<br>恰当的使用这些规范可以让你的应用获益匪浅，提高响应时间，降低服务器负载</p>
+<p>这里介绍的方法主要是使用结构和样式去实现，而并不会使用js计算高度</p>
+<h2 id="HTTP-缓存头"><a href="#HTTP-缓存头" class="headerlink" title="HTTP 缓存头"></a>HTTP 缓存头</h2><p>这有两个基本的缓存头，Cache-Control 和 Expires。</p>
+<h3 id="设置-Cache-Control-值"><a href="#设置-Cache-Control-值" class="headerlink" title="设置 Cache-Control 值"></a>设置 Cache-Control 值</h3><ol>
+<li><p>public 资源不仅可以被用户端浏览器缓存，还可以被能够给其他众多用户提供服务的中间代理器缓存</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Cache-Control:public</div></pre></td></tr></table></figure>
+</li>
+<li><p>private 资源会被中间代理器忽略，只能够被客户端缓存</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Cache-Control:private</div></pre></td></tr></table></figure>
+</li>
+<li><p>Cache-Control 头部的值是一个复合值，既表明了资源是 public 还是 private ,还表明了它能够缓存的时间的最大值，在它被认为过时之前。max-age 设置了一个时间跨度，表示缓存这些资源多长时间。（以秒计算）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Cache-Control:public, max-age=31536000</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>当 Cache-Control 头部打开客户端缓存，设置一个资源的 max-age 时，Expires 头部被用来确定一个具体的时间点，到时间点时缓存的资源将会失效。</p>
+<h3 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h3><p>伴随着 Cache-Control 头部的设置，Expires只是设置一个缓存资源失效的日期。浏览器将会从这个日期提前请求这个资源的新副本。在那个日期之前，浏览器使用的是本地缓存副本：</p>
+<p>注意：如果 Expires 和 max-age 同时都被设置了，那么优先考虑 max-age </p>
+<p><a href="https://github.com/lindazhang102/Personal-Blog/blob/master/http%20cache.md" title="http cache" target="_blank" rel="external">引用</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://kuscript.com/2016/06/27/http-cache/" data-id="ciqj3ignz000d2zl9fbsac3uh" class="article-share-link">Share</a>-->
+      <!-- Bino Yip baidu share start -->
+      <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
+      </div>
+      <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+      </script>
+      <!-- Bino Yip baidu share end -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/性能/">性能</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/缓存/">缓存</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-sticky-footer" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/27/sticky-footer/" class="article-date">
+  <time datetime="2016-06-27T06:09:57.000Z" itemprop="datePublished">6月 27 2016</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/27/sticky-footer/">粘连Footer的简单实现方式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>粘连 footer 的目的是让footer模块在内容高度小于窗口高度时footer类似positon fixed在底部；<br>当内容高度大于窗口高度时footer类似positon static跟随内容区域后面</p>
+<p>这里介绍的方法主要是使用结构和样式去实现，而并不会使用js计算高度</p>
+<h2 id="方案一：-在-footer-上用负的-margin-top"><a href="#方案一：-在-footer-上用负的-margin-top" class="headerlink" title="方案一： 在 footer 上用负的 margin-top"></a>方案一： 在 footer 上用负的 margin-top</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">// 结构</div><div class="line"> 	&lt;body&gt;</div><div class="line">  &lt;div class=<span class="string">"content"</span>&gt;</div><div class="line">    &lt;div class=<span class="string">"content-inner"</span>&gt;</div><div class="line">      content</div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">  &lt;footer class=<span class="string">"footer"</span>&gt;&lt;/footer&gt;</div><div class="line">&lt;/body&gt;</div><div class="line"></div><div class="line">// 样式</div><div class="line">html, body &#123;</div><div class="line">	height: 100%;</div><div class="line">	margin: 0;</div><div class="line">&#125;</div><div class="line">.content &#123;</div><div class="line">	min-height: 100%;</div><div class="line">&#125;</div><div class="line">.content-inner &#123;</div><div class="line">	padding: 20px;</div><div class="line">	padding-bottom: 50px;</div><div class="line">&#125;</div><div class="line">.footer &#123;</div><div class="line">	height: 50px;</div><div class="line">	margin-top: -50px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="/page/footer.html" title="flex footer">DEMO示例</a></p>
+<h2 id="方案二：-在-wrapper-上用负的-margin-bottom"><a href="#方案二：-在-wrapper-上用负的-margin-bottom" class="headerlink" title="方案二： 在 wrapper 上用负的 margin-bottom"></a>方案二： 在 wrapper 上用负的 margin-bottom</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">// 结构</div><div class="line">   &lt;body&gt;</div><div class="line">&lt;div class=<span class="string">"wrapper"</span>&gt;</div><div class="line"></div><div class="line">    content</div><div class="line"></div><div class="line">	&lt;div class=<span class="string">"push"</span>&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;footer class=<span class="string">"footer"</span>&gt;&lt;/footer&gt;</div><div class="line">&lt;/body&gt;</div><div class="line"></div><div class="line">// 样式</div><div class="line">html, body &#123;</div><div class="line">	height: 100%;</div><div class="line">	margin: 0;</div><div class="line">&#125;</div><div class="line">.wrapper &#123;</div><div class="line">	min-height: 100%;</div><div class="line">	margin-bottom: -50px;</div><div class="line">&#125;</div><div class="line">.footer, .push &#123;</div><div class="line">	height: 50px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://kuscript.com/2016/06/27/sticky-footer/" data-id="ciqj3igo8000o2zl9zumff8cv" class="article-share-link">Share</a>-->
+      <!-- Bino Yip baidu share start -->
+      <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
+      </div>
+      <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+      </script>
+      <!-- Bino Yip baidu share end -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/footer/">footer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/粘连/">粘连</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/页脚/">页脚</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Performance-API" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/08/Performance-API/" class="article-date">
+  <time datetime="2015-10-08T09:34:25.000Z" itemprop="datePublished">10月 8 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/08/Performance-API/">Performance API</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>performance.timing表示一个页面事件（例如页面发送了请求）或者页面加载（例如当DOM开始加载），测量以毫秒的形式展示；<br>支持浏览器: IE9+,Chrome11+,Firefox7+</p>
+<h2 id="API列表"><a href="#API列表" class="headerlink" title="API列表"></a>API列表</h2><ul>
+<li>performance.timing.navigationStart   当load/unload动作被触发时间</li>
+<li>performance.timing.redirectStart   页面重定向时的开始时间</li>
+<li>performance.timing.redirectEnd   页面重定向时的结束时间</li>
+<li>performance.timing.domComplete   页面DOM加载完时间</li>
+<li>performance.timing.responseStart   客户端收到从服务器端（或缓存、本地资源）响应回的第一个字节的数据的时刻</li>
+<li>performance.timing.responseEnd   客户端收到从服务器端（或缓存、本地资源）响应回的最后一个字节的数据的时刻</li>
+</ul>
+<h2 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h2><p>更多请查阅<a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigation_timing_API" target="_blank" rel="external">performance文档</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://kuscript.com/2015/10/08/Performance-API/" data-id="ciqj3igni00032zl9uvotteg4" class="article-share-link">Share</a>-->
+      <!-- Bino Yip baidu share start -->
+      <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
+      </div>
+      <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+      </script>
+      <!-- Bino Yip baidu share end -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/console/">console</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/performance/">performance</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/timing/">timing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/性能优化/">性能优化</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-h5-post-message" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/06/12/h5-post-message/" class="article-date">
+  <time datetime="2015-06-12T03:09:57.000Z" itemprop="datePublished">6月 12 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/06/12/h5-post-message/">使用html5的postMessage传递消息</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="web开发常用场景"><a href="#web开发常用场景" class="headerlink" title="web开发常用场景"></a>web开发常用场景</h2><ol>
+<li><p>页面和其打开的新窗口的数据传递</p>
+</li>
+<li><p>多窗口之间消息传递</p>
+</li>
+<li><p>页面与嵌套的iframe消息传递</p>
+</li>
+<li><p>上面三个问题的跨域数据传递</p>
+</li>
+</ol>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><ol>
+<li>postMessage(data,origin)<br>data：要传递的数据(基本类型或对象)<br>origin：字符串参数，指明目标窗口的源，协议+主机+端口号[+URL]，URL会被忽略，所以可以不写，这个参数是为了安全考虑</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">window.postMessage(<span class="string">'myName'</span>,<span class="string">'http://kuscript.com/'</span>);</div></pre></td></tr></table></figure>
+<ol>
+<li>接收信息</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">window.addEventListener(<span class="string">'message'</span>,<span class="keyword">function</span>(e)&#123;</div><div class="line">    console.log(e);  // 消息对象</div><div class="line">    console.log(e.data);  // myName</div><div class="line">&#125;,<span class="literal">false</span>);</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://kuscript.com/2015/06/12/h5-post-message/" data-id="ciqj3ignx000a2zl9txh7tu4x" class="article-share-link">Share</a>-->
+      <!-- Bino Yip baidu share start -->
+      <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
+      </div>
+      <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+      </script>
+      <!-- Bino Yip baidu share end -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postMessage/">postMessage</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/消息/">消息</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-es6-promise" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/04/13/es6-promise/" class="article-date">
+  <time datetime="2015-04-13T10:26:25.000Z" itemprop="datePublished">4月 13 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/04/13/es6-promise/">ES6 promise示例</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>ES6 promise实例：</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>promise的出现是为了解决js回调嵌套的问题。当嵌套多起来的时候，代码变得凌乱<br>而promise就是将嵌套回调转换成易于理解的线性逻辑！</p>
+<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">// 异步请求方法</div><div class="line"><span class="keyword">function</span> searchTwitter(resolve, reject) &#123;</div><div class="line">    var url, xhr, results, promise;</div><div class="line">    url = <span class="string">'/api/lucky.roll?activityId=5'</span>;</div><div class="line">    xhr = new XMLHttpRequest();</div><div class="line">    xhr.open(<span class="string">'GET'</span>, url, <span class="literal">true</span>);</div><div class="line">    xhr.onload = <span class="keyword">function</span> (e) &#123;</div><div class="line">        <span class="keyword">if</span> (this.status === 200) &#123;</div><div class="line">            results = JSON.parse(this.responseText);</div><div class="line">            resolve(results);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    xhr.onerror = <span class="keyword">function</span> (e) &#123;</div><div class="line">        reject(e);</div><div class="line">    &#125;;</div><div class="line">    xhr.send();</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 我们假设step1, step2, step3都是ajax调用后端或者是</div><div class="line">// 在Node.js上查询数据库的异步操作</div><div class="line">// 每个步骤都有对应的失败和成功处理回调</div><div class="line">// 需求是这样，step1、step2、step3必须按顺序执行</div><div class="line"><span class="keyword">function</span> step1(resolve, reject) &#123;</div><div class="line">    console.log(<span class="string">'步骤一：执行'</span>);</div><div class="line">    searchTwitter(resolve, reject);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">function</span> step2(resolve, reject) &#123;</div><div class="line">    console.log(<span class="string">'步骤二：执行'</span>);</div><div class="line">    searchTwitter(resolve, reject);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">function</span> step3(resolve, reject) &#123;</div><div class="line">    console.log(<span class="string">'步骤三：执行'</span>);</div><div class="line">    searchTwitter(resolve, reject);</div><div class="line">&#125;</div><div class="line"></div><div class="line">new Promise(step1).then(<span class="keyword">function</span>(val)&#123;</div><div class="line">    console.info(val);</div><div class="line">    <span class="built_in">return</span> new Promise(step2);</div><div class="line">&#125;).then(<span class="keyword">function</span>(val)&#123;</div><div class="line">    console.info(val);</div><div class="line">    <span class="built_in">return</span> new Promise(step3);</div><div class="line">&#125;).then(<span class="keyword">function</span>(val)&#123;</div><div class="line">    console.info(val);</div><div class="line">    <span class="built_in">return</span> val;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// 执行输出</div><div class="line">// 步骤一：执行</div><div class="line">// Object &#123;data: Object, code: 200, msg: <span class="string">"Ok"</span>&#125;</div><div class="line">// 步骤二：执行</div><div class="line">// Object &#123;data: Object, code: 200, msg: <span class="string">"Ok"</span>&#125;</div><div class="line">// 步骤三：执行</div><div class="line">// Object &#123;data: Object, code: 200, msg: <span class="string">"Ok"</span>&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://kuscript.com/2015/04/13/es6-promise/" data-id="ciqj3ignq00062zl9qq8gpxmb" class="article-share-link">Share</a>-->
+      <!-- Bino Yip baidu share start -->
+      <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
+      </div>
+      <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+      </script>
+      <!-- Bino Yip baidu share end -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es6/">es6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/promise/">promise</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
+  
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Bino Yip<br>
+      <a href="https://github.com/ken8203/hexo-theme-alberta" target="_blank">Alberta</a> by <a href="http://jaychung.tw" target="_blank">jaychung</a>. Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Thank <a href="http://subtlepatterns.com/" target="_blank">Subtlepatterns</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="//imsky.github.io/holder/holder.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

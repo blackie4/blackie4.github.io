@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Bino&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="html、css、js、nodejs，前端开发、web开发、f2e">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bino's Blog">
+<meta property="og:url" content="http://kuscript.com/page/2/index.html">
+<meta property="og:site_name" content="Bino's Blog">
+<meta property="og:description" content="html、css、js、nodejs，前端开发、web开发、f2e">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bino's Blog">
+<meta name="twitter:description" content="html、css、js、nodejs，前端开发、web开发、f2e">
+  
+    <link rel="alternative" href="/atom.xml" title="Bino&#39;s Blog" type="application/atom+xml">
+  
+  
+    <!-- <link rel="shortcut icon" href="favicon.ico">  -->
+    <!-- Bino Yip  -->
+    <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="overlay"></div>
+  <div id="header-outer" class="outer">
+    <div id="profile_img">
+      <img id="circle_img" src="/css/images/banner.jpg" />
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Bino&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">专注于前端、JS、nodeJS开发</a>
+        </h2>
+      
+    </div>
+    <div id="header-menu">
+      <nav id="main-nav">
+        <ul>
+        
+          <li><a href="/"><i class="fa fa-home icon-setting"></i></a></li>
+        
+          <li><a href="/archives"><i class="fa fa-archive icon-setting"></i></a></li>
+        
+          <li><a href="/about"><i class="fa fa-user icon-setting"></i></a></li>
+        
+        
+          <li><a href="/atom.xml"><i class="fa fa-rss %> icon-setting"></i></a></li>
+        
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-ie-mode-check" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/04/13/ie-mode-check/" class="article-date">
+  <time datetime="2015-04-13T03:26:25.000Z" itemprop="datePublished">4月 13 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/04/13/ie-mode-check/">IE10/IE11特性检测</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>IE10/IE11特性检测：</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我们熟悉的ie样式检测有_、*、\9、!important…等； 今天我们主要谈谈新ie浏览器的特性检测。</p>
+<h2 id="1-ie10-ie11特性判断（css）"><a href="#1-ie10-ie11特性判断（css）" class="headerlink" title="1. ie10/ie11特性判断（css）"></a>1. ie10/ie11特性判断（css）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@media screen and (min-width:0\0) &#123; </div><div class="line">/* IE9 , IE10 ,IE11 rule sets go here */ </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="2-ie10-ie11特性判断（js）"><a href="#2-ie10-ie11特性判断（js）" class="headerlink" title="2. ie10/ie11特性判断（js）"></a>2. ie10/ie11特性判断（js）</h2><p>结合条件注释来提供针对ie10的Hack：该脚本里面的IE排除条件注释，以确保IE6-9不承认它，然后它功能检测到了名为@ cc_on。 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;!--[<span class="keyword">if</span> !IE]&gt;&lt;!--&gt; </div><div class="line">&lt;script&gt; </div><div class="line">// 针对IE10 </div><div class="line"><span class="keyword">if</span> (/*@cc_on!@*/<span class="literal">false</span>) &#123; </div><div class="line">document.documentElement.className += <span class="string">' ie'</span> + document.documentMode; </div><div class="line">&#125; </div><div class="line">// 针对IE11及非IE浏览器， </div><div class="line">// 因为IE11下document.documentMode为11，所以html标签上会加ie11样式类； </div><div class="line">// 而非IE浏览器的document.documentMode为undefined，所以html标签上会加ieundefined样式类。 </div><div class="line"><span class="keyword">if</span> (/*@cc_on!@*/<span class="literal">true</span>) &#123; </div><div class="line">document.documentElement.className += <span class="string">' ie'</span> + document.documentMode; </div><div class="line">&#125; </div><div class="line">&lt;/script&gt; </div><div class="line">&lt;!--&lt;![endif]--&gt;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://kuscript.com/2015/04/13/ie-mode-check/" data-id="ciqj3igo1000f2zl9n376tvyt" class="article-share-link">Share</a>-->
+      <!-- Bino Yip baidu share start -->
+      <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
+      </div>
+      <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+      </script>
+      <!-- Bino Yip baidu share end -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ie/">ie</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ie10/">ie10</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ie11/">ie11</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/特性检测/">特性检测</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-html5-shake-mobile" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/04/07/html5-shake-mobile/" class="article-date">
+  <time datetime="2015-04-07T08:50:25.000Z" itemprop="datePublished">4月 7 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/04/07/html5-shake-mobile/">分享两个HTML5 API</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="手机摇一摇："><a href="#手机摇一摇：" class="headerlink" title="手机摇一摇："></a>手机摇一摇：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">var i = 0;</div><div class="line">var color = new Array(<span class="string">'#fff'</span>, <span class="string">'#ff0'</span>, <span class="string">'#f00'</span>, <span class="string">'#000'</span>, <span class="string">'#00f'</span>, <span class="string">'#0ff'</span>);</div><div class="line"><span class="keyword">if</span>(window.DeviceMotionEvent) &#123;</div><div class="line">	var speed = 25;</div><div class="line">	var x = y = z = lastX = lastY = lastZ = 0;</div><div class="line">	window.addEventListener(<span class="string">'devicemotion'</span>, <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">		var acceleration =event.accelerationIncludingGravity;</div><div class="line">		x = acceleration.x;</div><div class="line">		y = acceleration.y;</div><div class="line">		<span class="keyword">if</span>(Math.abs(x-lastX) &gt; speed || Math.abs(y-lastY) &gt; speed) &#123;			</div><div class="line">			i += parseInt(1);//自加变量</div><div class="line">			var txt = document.getElementById(<span class="string">"txt"</span>);//获取text属性</div><div class="line">			txt.value = i;//将次数i赋值给text</div><div class="line">			document.body.style.backgroundColor = color[Math.round(Math.random()*10)%6];</div><div class="line">		&#125;</div><div class="line">		lastX = x;</div><div class="line">		lastY = y;</div><div class="line">	&#125;, <span class="literal">false</span>);</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h2 id="手机倾斜："><a href="#手机倾斜：" class="headerlink" title="手机倾斜："></a>手机倾斜：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;  </div><div class="line">    <span class="keyword">function</span> orientationHandler(event) &#123;  </div><div class="line">    	// 前后</div><div class="line">        document.getElementById(<span class="string">"alpha"</span>).innerHTML = event.alpha;  </div><div class="line">        // 左右</div><div class="line">        document.getElementById(<span class="string">"beta"</span>).innerHTML = event.beta;  </div><div class="line">        // 扭转</div><div class="line">        document.getElementById(<span class="string">"gamma"</span>).innerHTML = event.gamma;  </div><div class="line">    &#125; </div><div class="line">	<span class="keyword">if</span> (window.DeviceOrientationEvent) &#123;  </div><div class="line">      window.addEventListener(<span class="string">"deviceorientation"</span>, orientationHandler, <span class="literal">false</span>);  </div><div class="line">    &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://kuscript.com/2015/04/07/html5-shake-mobile/" data-id="ciqj3ignv00092zl9yz0mhpmu" class="article-share-link">Share</a>-->
+      <!-- Bino Yip baidu share start -->
+      <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
+      </div>
+      <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+      </script>
+      <!-- Bino Yip baidu share end -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/devicemotion/">devicemotion</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/deviceorientation/">deviceorientation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mobile/">mobile</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-html5-canvas-scratch" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/04/07/html5-canvas-scratch/" class="article-date">
+  <time datetime="2015-04-07T06:31:57.000Z" itemprop="datePublished">4月 7 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/04/07/html5-canvas-scratch/">HTML5 Canvas 涂抹效果</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>移动端开发经常会遇到涂抹效果的运用。 今天我们用比较简洁的方法来实现这个效果</p>
+<p>1.html结构<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div class=<span class="string">"scratch"</span>&gt;</div><div class="line">  &lt;img src=<span class="string">"img/scratch_img.jpg"</span> alt=<span class="string">""</span> width=<span class="string">"200"</span> height=<span class="string">"300"</span>&gt;</div><div class="line">  &lt;canvas id=<span class="string">"scratchCanvas"</span> class=<span class="string">"scratch-canvas"</span> width=<span class="string">"200"</span> height=<span class="string">"300"</span>&gt;&lt;/canvas&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>2.css样式，利用绝对定位将canvas覆盖在图片之上<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">.scratch&#123;position: relative; width: 200px; height: 300px; margin: 30px auto 0; border: 1px solid <span class="comment">#ccc; &#125;</span></div><div class="line">.scratch-canvas&#123;position: absolute; left: 0; top: 0;&#125;</div></pre></td></tr></table></figure></p>
+<p>3.js脚本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div></pre></td><td class="code"><pre><div class="line">init();</div><div class="line"></div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">init</span></span>() &#123;</div><div class="line">  </div><div class="line">  var canvas = document.getElementById(<span class="string">"scratchCanvas"</span>),</div><div class="line">    ctx = canvas.getContext(<span class="string">"2d"</span>);</div><div class="line"></div><div class="line">  var x1, y1, a = 20;</div><div class="line">  var ratio = 0.5;</div><div class="line">  var path = 0;</div><div class="line"></div><div class="line">  canvas.width = 200;</div><div class="line">  canvas.height = 300;</div><div class="line"></div><div class="line">  var img = new Image();</div><div class="line">  img.onload = <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    ctx.drawImage(img,0,0,canvas.width,canvas.height);</div><div class="line">    tapClip();</div><div class="line">  &#125;</div><div class="line">  img.src = <span class="string">"img/scratch_mask.png"</span>;</div><div class="line"></div><div class="line"></div><div class="line">  <span class="keyword">function</span> <span class="function"><span class="title">tapClip</span></span>()&#123;</div><div class="line"></div><div class="line">    ctx.lineCap = <span class="string">"round"</span>;   // 圆形的线帽</div><div class="line">    ctx.lineJoin = <span class="string">"round"</span>;  // 两条线条交汇时，创建圆形边角</div><div class="line">    ctx.lineWidth = a*2;</div><div class="line">    ctx.globalCompositeOperation = <span class="string">"destination-out"</span>;  // 合成操作 重叠的区域变成透明</div><div class="line">        </div><div class="line">    canvas.addEventListener(<span class="string">'touchstart'</span> , <span class="keyword">function</span>(e)&#123;</div><div class="line">      e.preventDefault();</div><div class="line">      //alert(e.clientY);</div><div class="line">      // var canvaleft = document.body.clientWidth/2 - 400,</div><div class="line">      //  canvatop = document.body.clientHeight/2 - 245,</div><div class="line">      //  ecx = e.clientX + 0.27 * (e.clientX - document.body.clientWidth/2 + 230),</div><div class="line">      //  ecy = e.clientY + 0.27 * (e.clientY - document.body.clientHeight/2 + 60);</div><div class="line"></div><div class="line">      // x1 = hastouch ? e.targetTouches[0].pageX : (ecx-canvaleft);</div><div class="line">      // y1 = hastouch ? e.targetTouches[0].pageY : (ecy-canvatop);</div><div class="line">      x1 = e.targetTouches[0].pageX - 60;</div><div class="line">      y1 = e.targetTouches[0].pageY - 30;</div><div class="line"></div><div class="line">      //alert(document.body.clientWidth/2);</div><div class="line">      ctx.save();</div><div class="line">      ctx.beginPath()</div><div class="line">      ctx.arc(x1, y1, 1, 0, 2*Math.PI);</div><div class="line">      ctx.fill();</div><div class="line">      ctx.restore();</div><div class="line">      </div><div class="line">      canvas.addEventListener(<span class="string">'touchmove'</span> , tapmoveHandler);</div><div class="line">      canvas.addEventListener(<span class="string">'touchend'</span> , <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">        canvas.removeEventListener(<span class="string">'touchmove'</span> , tapmoveHandler);</div><div class="line">      &#125;);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">      <span class="keyword">function</span> tapmoveHandler(e)&#123;</div><div class="line">        <span class="keyword">if</span>(path&gt;2*canvas.width*canvas.height*ratio) <span class="built_in">return</span>;</div><div class="line">        e.preventDefault();</div><div class="line"></div><div class="line">        // canvaleft=document.body.clientWidth/2-400;</div><div class="line">        // canvatop=document.body.clientHeight/2-245;</div><div class="line">        // ecx = e.clientX+0.27*(e.clientX-document.body.clientWidth/2+ 230);</div><div class="line">        // ecy = e.clientY+0.27*(e.clientY-document.body.clientHeight/2+ 60);</div><div class="line"></div><div class="line">        x2 = e.targetTouches[0].pageX - 60;</div><div class="line">        y2 = e.targetTouches[0].pageY - 30;</div><div class="line">          </div><div class="line">        ctx.save();</div><div class="line">        ctx.moveTo(x1,y1);</div><div class="line">        ctx.lineTo(x2,y2);</div><div class="line">        ctx.stroke();</div><div class="line">        ctx.restore()</div><div class="line">            </div><div class="line">        path += ((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2))^0.5*a;</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(path &gt; 2*canvas.width*canvas.height*ratio)&#123; </div><div class="line">          // alert(124);</div><div class="line">          canvas.removeEventListener(<span class="string">'touchmove'</span>);</div><div class="line">          canvas.removeEventListener(<span class="string">'touchend'</span>);</div><div class="line">          // $(<span class="string">'#scratchCanvas'</span>).fadeOut(1000,<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">            // $(<span class="string">'#p5513a81e60a92_arrow_up'</span>).show();</div><div class="line">            // unlock(<span class="string">"p5513a81e60a92"</span>);</div><div class="line">          // &#125;);</div><div class="line">          </div><div class="line">          canvas.style.display = <span class="string">'none'</span></div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        x1 = x2;</div><div class="line">        y1 = y2;</div><div class="line">      &#125;</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>###这里重点运用的是：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 合成操作 重叠的区域变成透明</div><div class="line">ctx.globalCompositeOperation = <span class="string">"destination-out"</span>;</div></pre></td></tr></table></figure></p>
+<p><a href="/page/scratch.html" title="涂抹DEMO">DEMO示例</a> (*注意： 在chrome手机模式下或用手机打开查看效果)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://kuscript.com/2015/04/07/html5-canvas-scratch/" data-id="ciqj3igny000c2zl90f8w6mbp" class="article-share-link">Share</a>-->
+      <!-- Bino Yip baidu share start -->
+      <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
+      </div>
+      <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+      </script>
+      <!-- Bino Yip baidu share end -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Canvas/">Canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/涂抹/">涂抹</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-flexible-case" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/05/flexible-case/" class="article-date">
+  <time datetime="2015-03-05T03:26:25.000Z" itemprop="datePublished">3月 5 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/05/flexible-case/">移动端自适应方案</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>移动端自适应方案：</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>设置html的font-size样式，根据font-size值设置各元素，单位使用rem。</p>
+<h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><p>1.html头部设置meta<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"initial-scale=1.0,maximum-scale=1,width=device-width"</span>&gt;</div></pre></td></tr></table></figure></p>
+<p>2.头部引入flexible.js</p>
+<p>3.把视觉稿中的px转换成rem</p>
+<p>首先，假设视觉稿大小是<code>750</code>（iPhone6）。</p>
+<p>当前方案会把这3类视觉稿分成<code>100份</code>来看待（为了以后兼容vh，vw单位）。每一份被称为一个单位a。同时，1rem单位认定为10a。拿750的视觉稿举例：</p>
+<pre><code>1a = 7.5px
+1rem = 75px
+</code></pre><p>因此，对于视觉稿上的元素的尺寸换算，只需要<code>原始px值</code>除以<code>rem基准px值</code>即可。例如240px <em> 120px的元素，最后转换为3.2rem </em> 1.6rem。</p>
+<h2 id="字体不使用rem的方法"><a href="#字体不使用rem的方法" class="headerlink" title="字体不使用rem的方法"></a>字体不使用rem的方法</h2><p><a href="/page/flexible.html" title="flexible demo">DEMO示例</a></p>
+<p><a href="https://github.com/blackie4/lib.flexible" title="lib.flexible" target="_blank" rel="external">更多详细参考</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://kuscript.com/2015/03/05/flexible-case/" data-id="ciqj3ignr00082zl9e4h7um7g" class="article-share-link">Share</a>-->
+      <!-- Bino Yip baidu share start -->
+      <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
+      </div>
+      <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+      </script>
+      <!-- Bino Yip baidu share end -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mobile/">mobile</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自适应/">自适应</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-test-js-version" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/03/test-js-version/" class="article-date">
+  <time datetime="2015-03-03T03:09:57.000Z" itemprop="datePublished">3月 3 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/03/test-js-version/">检测浏览器支持Javascript的版本</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>执行一下代码即可看到:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;   </div><div class="line">&lt;head&gt;   </div><div class="line">  &lt;title&gt;JavaScript版本测试&lt;/title&gt;   </div><div class="line">&lt;/head&gt;   </div><div class="line">&lt;body&gt;   </div><div class="line">&lt;script   language=<span class="string">"JavaScript"</span>&gt;   </div><div class="line">  //仅支持JavaScript   1.0的浏览器才读该部分   </div><div class="line">  document.write(<span class="string">'浏览器支持JavaScript   1.0&lt;br&gt;'</span>);   </div><div class="line">&lt;/script&gt;   </div><div class="line">&lt;script   language=<span class="string">"JavaScript1.1"</span>&gt;   </div><div class="line">  //仅支持JavaScript   1.1的浏览器才读该部分   </div><div class="line">  document.write(<span class="string">'浏览器支持JavaScript   1.1&lt;br&gt;'</span>);   </div><div class="line">&lt;/script&gt;   </div><div class="line">&lt;script   language=<span class="string">"JavaScript1.2"</span>&gt;   </div><div class="line">  //仅支持JavaScript   1.2的浏览器才读该部分   </div><div class="line">  document.write(<span class="string">'浏览器支持JavaScript   1.2&lt;br&gt;'</span>);   </div><div class="line">&lt;/script&gt;   </div><div class="line">&lt;script   language=<span class="string">"JavaScript1.3"</span>&gt;   </div><div class="line">  //仅支持JavaScript   1.3的浏览器才读该部分   </div><div class="line">  document.write(<span class="string">'浏览器支持JavaScript   1.3&lt;br&gt;'</span>);   </div><div class="line">&lt;/script&gt;   </div><div class="line">&lt;script   language=<span class="string">"JavaScript1.4"</span>&gt;   </div><div class="line">  //仅支持JavaScript   1.4的浏览器才读该部分   </div><div class="line">  document.write(<span class="string">'浏览器支持JavaScript   1.4&lt;br&gt;'</span>);   </div><div class="line">&lt;/script&gt;   </div><div class="line">&lt;script   language=<span class="string">"JavaScript1.5"</span>&gt;   </div><div class="line">  //仅支持JavaScript   1.5的浏览器才读该部分   </div><div class="line">  document.write(<span class="string">'浏览器支持JavaScript   1.5&lt;br&gt;'</span>);   </div><div class="line">&lt;/script&gt;</div><div class="line">&lt;script   language=<span class="string">"JavaScript1.6"</span>&gt;   </div><div class="line">  //仅支持JavaScript   1.6的浏览器才读该部分   </div><div class="line">  document.write(<span class="string">'浏览器支持JavaScript   1.6&lt;br&gt;'</span>);   </div><div class="line">&lt;/script&gt; </div><div class="line">&lt;script   language=<span class="string">"JavaScript1.7"</span>&gt;   </div><div class="line">  //仅支持JavaScript   1.7的浏览器才读该部分   </div><div class="line">  document.write(<span class="string">'浏览器支持JavaScript   1.7&lt;br&gt;'</span>);   </div><div class="line">&lt;/script&gt; </div><div class="line">&lt;script   language=<span class="string">"JavaScript1.8"</span>&gt;   </div><div class="line">  //仅支持JavaScript   1.8的浏览器才读该部分   </div><div class="line">  document.write(<span class="string">'浏览器支持JavaScript   1.8&lt;br&gt;'</span>);   </div><div class="line">&lt;/script&gt; </div><div class="line">&lt;script   language=<span class="string">"JavaScript1.9"</span>&gt;   </div><div class="line">  //仅支持JavaScript   1.9的浏览器才读该部分   </div><div class="line">  document.write(<span class="string">'浏览器支持JavaScript   1.9&lt;br&gt;'</span>);   </div><div class="line">&lt;/script&gt; </div><div class="line">&lt;/body&gt;   </div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://kuscript.com/2015/03/03/test-js-version/" data-id="ciqj3igoc000q2zl9cgl8riis" class="article-share-link">Share</a>-->
+      <!-- Bino Yip baidu share start -->
+      <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
+      </div>
+      <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+      </script>
+      <!-- Bino Yip baidu share end -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/检测/">检测</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/版本/">版本</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+    </nav>
+  
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Bino Yip<br>
+      <a href="https://github.com/ken8203/hexo-theme-alberta" target="_blank">Alberta</a> by <a href="http://jaychung.tw" target="_blank">jaychung</a>. Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Thank <a href="http://subtlepatterns.com/" target="_blank">Subtlepatterns</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="//imsky.github.io/holder/holder.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

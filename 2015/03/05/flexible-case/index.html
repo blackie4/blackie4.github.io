@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>移动端自适应方案 | Bino&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="移动端自适应方案：
+原理设置html的font-size样式，根据font-size值设置各元素，单位使用rem。
+简单使用1.html头部设置meta1&amp;lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1.0,maximum-scale=1,width=device-width&quot;&amp;gt;
+2.头部引入flexible.js
+3.把视觉稿中的px转换成">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端自适应方案">
+<meta property="og:url" content="http://kuscript.com/2015/03/05/flexible-case/index.html">
+<meta property="og:site_name" content="Bino's Blog">
+<meta property="og:description" content="移动端自适应方案：
+原理设置html的font-size样式，根据font-size值设置各元素，单位使用rem。
+简单使用1.html头部设置meta1&amp;lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1.0,maximum-scale=1,width=device-width&quot;&amp;gt;
+2.头部引入flexible.js
+3.把视觉稿中的px转换成">
+<meta property="og:updated_time" content="2015-03-05T03:47:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动端自适应方案">
+<meta name="twitter:description" content="移动端自适应方案：
+原理设置html的font-size样式，根据font-size值设置各元素，单位使用rem。
+简单使用1.html头部设置meta1&amp;lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1.0,maximum-scale=1,width=device-width&quot;&amp;gt;
+2.头部引入flexible.js
+3.把视觉稿中的px转换成">
+  
+    <link rel="alternative" href="/atom.xml" title="Bino&#39;s Blog" type="application/atom+xml">
+  
+  
+    <!-- <link rel="shortcut icon" href="favicon.ico">  -->
+    <!-- Bino Yip  -->
+    <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="overlay"></div>
+  <div id="header-outer" class="outer">
+    <div id="profile_img">
+      <img id="circle_img" src="/css/images/banner.jpg" />
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Bino&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">专注于前端、JS、nodeJS开发</a>
+        </h2>
+      
+    </div>
+    <div id="header-menu">
+      <nav id="main-nav">
+        <ul>
+        
+          <li><a href="/"><i class="fa fa-home icon-setting"></i></a></li>
+        
+          <li><a href="/archives"><i class="fa fa-archive icon-setting"></i></a></li>
+        
+          <li><a href="/about"><i class="fa fa-user icon-setting"></i></a></li>
+        
+        
+          <li><a href="/atom.xml"><i class="fa fa-rss %> icon-setting"></i></a></li>
+        
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-flexible-case" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/05/flexible-case/" class="article-date">
+  <time datetime="2015-03-05T03:26:25.000Z" itemprop="datePublished">3月 5 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      移动端自适应方案
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>移动端自适应方案：</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>设置html的font-size样式，根据font-size值设置各元素，单位使用rem。</p>
+<h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><p>1.html头部设置meta<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"initial-scale=1.0,maximum-scale=1,width=device-width"</span>&gt;</div></pre></td></tr></table></figure></p>
+<p>2.头部引入flexible.js</p>
+<p>3.把视觉稿中的px转换成rem</p>
+<p>首先，假设视觉稿大小是<code>750</code>（iPhone6）。</p>
+<p>当前方案会把这3类视觉稿分成<code>100份</code>来看待（为了以后兼容vh，vw单位）。每一份被称为一个单位a。同时，1rem单位认定为10a。拿750的视觉稿举例：</p>
+<pre><code>1a = 7.5px
+1rem = 75px
+</code></pre><p>因此，对于视觉稿上的元素的尺寸换算，只需要<code>原始px值</code>除以<code>rem基准px值</code>即可。例如240px <em> 120px的元素，最后转换为3.2rem </em> 1.6rem。</p>
+<h2 id="字体不使用rem的方法"><a href="#字体不使用rem的方法" class="headerlink" title="字体不使用rem的方法"></a>字体不使用rem的方法</h2><p><a href="/page/flexible.html" title="flexible demo">DEMO示例</a></p>
+<p><a href="https://github.com/blackie4/lib.flexible" title="lib.flexible" target="_blank" rel="external">更多详细参考</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://kuscript.com/2015/03/05/flexible-case/" data-id="ciqj3ignr00082zl9e4h7um7g" class="article-share-link">Share</a>-->
+      <!-- Bino Yip baidu share start -->
+      <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
+      </div>
+      <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+      </script>
+      <!-- Bino Yip baidu share end -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mobile/">mobile</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自适应/">自适应</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/04/07/html5-canvas-scratch/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          HTML5 Canvas 涂抹效果
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/03/03/test-js-version/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">检测浏览器支持Javascript的版本</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Bino Yip<br>
+      <a href="https://github.com/ken8203/hexo-theme-alberta" target="_blank">Alberta</a> by <a href="http://jaychung.tw" target="_blank">jaychung</a>. Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Thank <a href="http://subtlepatterns.com/" target="_blank">Subtlepatterns</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="//imsky.github.io/holder/holder.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

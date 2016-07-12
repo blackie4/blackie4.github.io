@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>WEB</title>
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1,width=device-width">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <style>
+    	html,body{margin: 0; padding: 0;}
+		.wrapper{width: 320px; height: 504px;}
+		.scratch{position: relative; width: 200px; height: 300px; margin: 30px auto 0; border: 1px solid #ccc; }
+		.scratch-canvas{position: absolute; left: 0; top: 0;}
+    </style>
+</head>
+<body>
+
+
+<div class="wrapper">
+    
+    <div class="scratch">
+    	<img src="img/scratch_img.jpg" alt="" width="200" height="300">
+    	<canvas id="scratchCanvas" class="scratch-canvas" width="200" height="300"></canvas>
+    </div>
+    
+
+</div>
+
+<script>
+
+init();
+
+function init() {
+	
+	var canvas = document.getElementById("scratchCanvas"),
+		ctx = canvas.getContext("2d");
+
+	var x1, y1, a = 20;
+	var ratio = 0.5;
+	var path = 0;
+
+	canvas.width = 200;
+	canvas.height = 300;
+
+	var img = new Image();
+	img.onload = function(){
+		ctx.drawImage(img,0,0,canvas.width,canvas.height);
+		tapClip();
+	}
+	img.src = "img/scratch_mask.png";
+
+
+	function tapClip(){
+
+		ctx.lineCap = "round";   // 圆形的线帽
+		ctx.lineJoin = "round";  // 两条线条交汇时，创建圆形边角
+		ctx.lineWidth = a*2;
+		ctx.globalCompositeOperation = "destination-out";  // 合成操作 重叠的区域变成透明
+				
+		canvas.addEventListener('touchstart' , function(e){
+			e.preventDefault();
+			//alert(e.clientY);
+			// var canvaleft = document.body.clientWidth/2 - 400,
+			// 	canvatop = document.body.clientHeight/2 - 245,
+			// 	ecx = e.clientX + 0.27 * (e.clientX - document.body.clientWidth/2 + 230),
+			// 	ecy = e.clientY + 0.27 * (e.clientY - document.body.clientHeight/2 + 60);
+
+			// x1 = hastouch ? e.targetTouches[0].pageX : (ecx-canvaleft);
+			// y1 = hastouch ? e.targetTouches[0].pageY : (ecy-canvatop);
+			x1 = e.targetTouches[0].pageX - 60;
+			y1 = e.targetTouches[0].pageY - 30;
+
+			//alert(document.body.clientWidth/2);
+			ctx.save();
+			ctx.beginPath()
+			ctx.arc(x1, y1, 1, 0, 2*Math.PI);
+			ctx.fill();
+			ctx.restore();
+			
+			canvas.addEventListener('touchmove' , tapmoveHandler);
+			canvas.addEventListener('touchend' , function(){
+				canvas.removeEventListener('touchmove' , tapmoveHandler);
+			});
+
+
+
+			function tapmoveHandler(e){
+				if(path>2*canvas.width*canvas.height*ratio) return;
+				e.preventDefault();
+
+				// canvaleft=document.body.clientWidth/2-400;
+				// canvatop=document.body.clientHeight/2-245;
+				// ecx = e.clientX+0.27*(e.clientX-document.body.clientWidth/2+ 230);
+				// ecy = e.clientY+0.27*(e.clientY-document.body.clientHeight/2+ 60);
+
+				x2 = e.targetTouches[0].pageX - 60;
+				y2 = e.targetTouches[0].pageY - 30;
+					
+				ctx.save();
+				ctx.moveTo(x1,y1);
+				ctx.lineTo(x2,y2);
+				ctx.stroke();
+				ctx.restore()
+						
+				path += ((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2))^0.5*a;
+
+				if(path > 2*canvas.width*canvas.height*ratio){ 
+					// alert(124);
+					canvas.removeEventListener('touchmove');
+					canvas.removeEventListener('touchend');
+					// $('#scratchCanvas').fadeOut(1000,function(){
+						// $('#p5513a81e60a92_arrow_up').show();
+						// unlock("p5513a81e60a92");
+					// });
+					
+					canvas.style.display = 'none'
+
+				}
+
+				x1 = x2;
+				y1 = y2;
+			}
+		});
+	}
+}
+
+
+</script>
+
+
+
+</body>
+</html>

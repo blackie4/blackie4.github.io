@@ -1,0 +1,221 @@
+/* reset */
+html,body{overflow-x:hidden}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0}
+table{border-collapse:collapse;border-spacing:0}
+fieldset,img,iframe{border:0 none}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:400}
+ol,ul,li{list-style:none}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:400}
+q:before,q:after{content:''}
+a{text-decoration:none}
+
+body {
+	color: #333;
+	font: 14px/1.5 'Microsoft Yahei';
+	background-repeat: center center #f5f6f7;
+    background-attachment: fixed;
+	background-color: #f5f6f7;
+}
+body.bg0 {
+    background-image: url(../images/bg/0.jpg);
+}
+body.bg1 {
+    background-image: url(../images/bg/1.jpg);
+}
+body.bg2 {
+    background-image: url(../images/bg/2.jpg);
+}
+body.bg3 {
+    background-image: url(../images/bg/3.jpg);
+}
+body.bg4 {
+    background-image: url(../images/bg/4.jpg);
+}
+body.bg5 {
+    background-image: url(../images/bg/5.jpg);
+}
+a {
+	color: #666;
+	text-decoration: none;
+}
+
+.wrap {
+
+}
+.wrap .link-bd,
+.wrap .sidebar {
+	-webkit-transition: all .5s ease-in;
+    -moz-transition: all .5s ease-in;
+    -ms-transition: all .5s ease-in;
+    -o-transition: all .5s ease-in;
+    transition: all .5s ease-in;
+}
+
+
+.header {
+	height: 50px;
+	margin-bottom: 20px;
+    line-height: 50px;
+    background: #333;
+    text-align: center;
+    overflow: hidden;
+    // box-shadow: 0 3px 10px #999;
+}
+
+.content {
+	margin: 0 15px;
+    padding: 20px 0;
+    overflow: hidden;
+    zoom: 1;
+}
+
+.sidebar {
+	position: absolute;
+    top: 90px;
+    left: 15px;
+    width: 150px;
+    min-height: 300px;
+    padding: 20px 0;
+    background-color: #333;
+    color: #fff;
+    overflow: hidden;
+    font-size: 12px;
+    text-align: center;
+}
+.sidebar.fixed {
+	position: fixed;
+    top: 0px;
+}
+.sidebar .menu {
+	margin-bottom: 10px;
+}
+.sidebar h3 {
+    height: 36px;
+    line-height: 36px;
+    font-size: 16px;
+}
+.sidebar a {
+    line-height: 2.5;
+    font-size: 1.1em;
+    display: block;
+    padding: 0 20px;
+    color: #fff;
+}
+
+.main { 
+    margin-left: 170px;
+}
+
+.section {
+	display: block;
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+.section-inner {
+	padding: 25px;
+    background: #fff;
+    border: 1px solid #dfdfdf;
+    -webkit-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
+    -moz-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
+}
+.section .hd {
+	padding-bottom: 10px;
+    font-size: 20px;
+    border-bottom: 1px solid #ddd;
+}
+.section .link-list {
+    position: relative;
+    padding-left: 130px;
+	overflow: hidden;
+    min-height: 50px;
+    _zoom: 1;
+    border-bottom: 1px dashed #eee;
+}
+.section .link-hd {
+	position: absolute;
+    left: 0;
+    top: 14px;
+	display: block;
+    padding: 2px 0;
+    width: 110px;
+    background-color: #eee;
+    border-radius: 3px;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+.section .link-hd:after {
+	content: '\0020';
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    bottom: 9px;
+    right: -5px;
+    border-left: 5px solid #eee;
+    border-right: 0 none;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    _color: #FF3FFF;
+    _filter: chroma(color=#FF3FFF);
+}
+.section .link-bd {
+	padding: 10px;
+    zoom: 1;
+}
+.section .link-bd:hover {
+	background-color: #eee;
+}
+.section .link-bd a {
+	display: inline-block;
+    font-size: 16px;
+    margin-right: 25px;
+    white-space: nowrap;
+}
+.section .link-bd a:hover {
+	text-decoration: underline;
+}
+
+
+.footer {
+	padding: 20px;
+	text-align: center;
+	color: #aaa;
+	// background: #f5f6f7;
+}
+.footer a {
+	color: #999;
+}
+.footer a:hover {
+	color: #666;
+	text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+	.content {
+		padding: 0;
+	}
+	.main {
+		margin-left: 0;
+	}
+	.sidebar {
+		display: none;
+	}
+}
+
+@media (max-width: 560px) {
+	.section .hd {
+		display: none;
+	}
+	.section .link-hd {
+		position: static;
+	}
+	.section .link-hd:after {
+		display: none;
+	}
+	.section .link-list {
+		margin-bottom: 15px;
+		padding-left: 0;
+	}
+}
