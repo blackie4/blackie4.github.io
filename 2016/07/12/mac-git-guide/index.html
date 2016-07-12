@@ -3,27 +3,39 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Performance API | Bino&#39;s Blog</title>
+  <title>Mac Git ssh 配置指引 | Bino&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="简介performance.timing表示一个页面事件（例如页面发送了请求）或者页面加载（例如当DOM开始加载），测量以毫秒的形式展示；支持浏览器: IE9+,Chrome11+,Firefox7+
-API列表
-performance.timing.navigationStart   当load/unload动作被触发时间
-performance.timing.redirectStart   页">
+  <meta name="description" content="mac ssh配置：
+1、生成ssh输入命令
+1ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;
+提示保存ssh key文件名，输入文件名：~/.ssh/id_rsa_1  （ps：文件名前面是路径, 1可以自定义名称）
+然后输入ssh文件密码
+2、添加ssh查看~/.ssh目录下已生成的两个文件：
+私钥：id_rsa_1公钥：id_rsa_1.pub
+命令打开公钥，复制添加至">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Performance API">
-<meta property="og:url" content="http://kuscript.com/2015/10/08/Performance-API/index.html">
+<meta property="og:title" content="Mac Git ssh 配置指引">
+<meta property="og:url" content="http://kuscript.com/2016/07/12/mac-git-guide/index.html">
 <meta property="og:site_name" content="Bino's Blog">
-<meta property="og:description" content="简介performance.timing表示一个页面事件（例如页面发送了请求）或者页面加载（例如当DOM开始加载），测量以毫秒的形式展示；支持浏览器: IE9+,Chrome11+,Firefox7+
-API列表
-performance.timing.navigationStart   当load/unload动作被触发时间
-performance.timing.redirectStart   页">
-<meta property="og:updated_time" content="2015-10-08T09:52:24.000Z">
+<meta property="og:description" content="mac ssh配置：
+1、生成ssh输入命令
+1ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;
+提示保存ssh key文件名，输入文件名：~/.ssh/id_rsa_1  （ps：文件名前面是路径, 1可以自定义名称）
+然后输入ssh文件密码
+2、添加ssh查看~/.ssh目录下已生成的两个文件：
+私钥：id_rsa_1公钥：id_rsa_1.pub
+命令打开公钥，复制添加至">
+<meta property="og:updated_time" content="2016-07-12T07:15:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Performance API">
-<meta name="twitter:description" content="简介performance.timing表示一个页面事件（例如页面发送了请求）或者页面加载（例如当DOM开始加载），测量以毫秒的形式展示；支持浏览器: IE9+,Chrome11+,Firefox7+
-API列表
-performance.timing.navigationStart   当load/unload动作被触发时间
-performance.timing.redirectStart   页">
+<meta name="twitter:title" content="Mac Git ssh 配置指引">
+<meta name="twitter:description" content="mac ssh配置：
+1、生成ssh输入命令
+1ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;
+提示保存ssh key文件名，输入文件名：~/.ssh/id_rsa_1  （ps：文件名前面是路径, 1可以自定义名称）
+然后输入ssh文件密码
+2、添加ssh查看~/.ssh目录下已生成的两个文件：
+私钥：id_rsa_1公钥：id_rsa_1.pub
+命令打开公钥，复制添加至">
   
     <link rel="alternative" href="/atom.xml" title="Bino&#39;s Blog" type="application/atom+xml">
   
@@ -75,10 +87,10 @@ performance.timing.redirectStart   页">
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Performance-API" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-mac-git-guide" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/10/08/Performance-API/" class="article-date">
-  <time datetime="2015-10-08T09:34:25.000Z" itemprop="datePublished">10月 8 2015</time>
+    <a href="/2016/07/12/mac-git-guide/" class="article-date">
+  <time datetime="2016-07-12T07:26:25.000Z" itemprop="datePublished">7月 12 2016</time>
 </a>
     
   </div>
@@ -89,7 +101,7 @@ performance.timing.redirectStart   页">
         
   
     <h1 class="article-title" itemprop="name">
-      Performance API
+      Mac Git ssh 配置指引
     </h1>
   
 
@@ -97,21 +109,23 @@ performance.timing.redirectStart   页">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>performance.timing表示一个页面事件（例如页面发送了请求）或者页面加载（例如当DOM开始加载），测量以毫秒的形式展示；<br>支持浏览器: IE9+,Chrome11+,Firefox7+</p>
-<h2 id="API列表"><a href="#API列表" class="headerlink" title="API列表"></a>API列表</h2><ul>
-<li>performance.timing.navigationStart   当load/unload动作被触发时间</li>
-<li>performance.timing.redirectStart   页面重定向时的开始时间</li>
-<li>performance.timing.redirectEnd   页面重定向时的结束时间</li>
-<li>performance.timing.domComplete   页面DOM加载完时间</li>
-<li>performance.timing.responseStart   客户端收到从服务器端（或缓存、本地资源）响应回的第一个字节的数据的时刻</li>
-<li>performance.timing.responseEnd   客户端收到从服务器端（或缓存、本地资源）响应回的最后一个字节的数据的时刻</li>
-</ul>
-<h2 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h2><p>更多请查阅<a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigation_timing_API" target="_blank" rel="external">performance文档</a></p>
+        <p>mac ssh配置：</p>
+<h2 id="1、生成ssh"><a href="#1、生成ssh" class="headerlink" title="1、生成ssh"></a>1、生成ssh</h2><p>输入命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C <span class="string">"xxx@xxx.com"</span></div></pre></td></tr></table></figure>
+<p>提示保存ssh key文件名，输入文件名：~/.ssh/id_rsa_1  （ps：文件名前面是路径, 1可以自定义名称）</p>
+<p>然后输入ssh文件密码</p>
+<h2 id="2、添加ssh"><a href="#2、添加ssh" class="headerlink" title="2、添加ssh"></a>2、添加ssh</h2><p>查看~/.ssh目录下已生成的两个文件：</p>
+<p>私钥：id_rsa_1<br>公钥：id_rsa_1.pub</p>
+<p>命令打开公钥，复制添加至git站点</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat ~/.ssh/id_rsa_1.pub</div></pre></td></tr></table></figure>
+<h2 id="3、把私钥添加至git"><a href="#3、把私钥添加至git" class="headerlink" title="3、把私钥添加至git"></a>3、把私钥添加至git</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-add ~/.ssh/id_rsa_1</div></pre></td></tr></table></figure>
+<p>以上已经完成一个ssh key的添加了。</p>
+<p>ps：多个仓库重复1～3步骤即可</p>
 
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="http://kuscript.com/2015/10/08/Performance-API/" data-id="ciqj4i3al0002jfl988bkhj4p" class="article-share-link">Share</a>-->
+      <!-- <a data-url="http://kuscript.com/2016/07/12/mac-git-guide/" data-id="ciqj4i3bb000mjfl9p20gohjr" class="article-share-link">Share</a>-->
       <!-- Bino Yip baidu share start -->
       <div class="bdsharebuttonbox">
         <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
@@ -122,7 +136,7 @@ performance.timing.redirectStart   页">
       <!-- Bino Yip baidu share end -->
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/console/">console</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/performance/">performance</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/timing/">timing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/性能优化/">性能优化</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/macbook/">macbook</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/">ssh</a></li></ul>
 
     </footer>
   </div>
@@ -130,19 +144,10 @@ performance.timing.redirectStart   页">
     
 <nav id="article-nav">
   
-    <a href="/2016/06/27/sticky-footer/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          粘连Footer的简单实现方式
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/06/12/h5-post-message/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/06/27/http-cache/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">使用html5的postMessage传递消息</div>
+      <div class="article-nav-title">HTTP 缓存头简介</div>
     </a>
   
 </nav>

@@ -67,6 +67,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-js-economize-function" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/12/08/js-economize-function/" class="article-date">
+  <time datetime="2013-12-08T03:27:51.000Z" itemprop="datePublished">12月 8 2013</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/12/08/js-economize-function/">Javascript性能优化之函数节流</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>函数节流的原理很简单：<br>    通过一个定时器，阻断连续重复的函数调用。 例如： onresize 或 onmousemove 事件监听函数。<br>由于在短时间内连续执行多次，这样频繁的操作DOM，对性能影响是很大的！<br>具体实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var processor = &#123;    </div><div class="line">  	timeoutId: null,      </div><div class="line">	performProcessing: <span class="function"><span class="title">function</span></span>()&#123;    </div><div class="line">		// 要执行的代码    </div><div class="line">	&#125;,    </div><div class="line"> 	process: <span class="function"><span class="title">function</span></span>()&#123;          </div><div class="line">		clearTimeout(this.timeoutId);        </div><div class="line"> 		this.timeoutId  = <span class="built_in">set</span>Timeout(<span class="function"><span class="title">function</span></span>()&#123;          </div><div class="line">			processor.performProcessing();          </div><div class="line">		&#125;, 100);  </div><div class="line"> 	&#125;  </div><div class="line">&#125;;</div><div class="line"></div><div class="line">//调用 </div><div class="line">processor.process();</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://kuscript.com/2013/12/08/js-economize-function/" data-id="ciqj4i3b6000hjfl9164o53gt" class="article-share-link">Share</a>-->
+      <!-- Bino Yip baidu share start -->
+      <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
+      </div>
+      <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+      </script>
+      <!-- Bino Yip baidu share end -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/函数节流/">函数节流</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/性能优化/">性能优化</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-js-jsonp-php" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2013/09/02/js-jsonp-php/" class="article-date">
@@ -103,7 +150,7 @@
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="http://kuscript.com/2013/09/02/js-jsonp-php/" data-id="ciqj3igo2000h2zl9m10g9g2k" class="article-share-link">Share</a>-->
+      <!-- <a data-url="http://kuscript.com/2013/09/02/js-jsonp-php/" data-id="ciqj4i3b9000kjfl9gozbwy8x" class="article-share-link">Share</a>-->
       <!-- Bino Yip baidu share start -->
       <div class="bdsharebuttonbox">
         <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
