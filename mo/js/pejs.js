@@ -210,7 +210,7 @@ var ERR_REPORT = (function(global) {
         // 主动上报错误
         report: function(msg) {
             msg && report.push(msg);
-            _send(true);
+            // _send(true);
             return report;
         },
         // 初始化
