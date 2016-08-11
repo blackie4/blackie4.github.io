@@ -5,10 +5,10 @@ ERR_REPORT.init({
 
 var tst = 1;
 
-console.info(vtest);
+// console.info(vtest);
 
 try {
-	// console.asges(tst);
+	console.asges(tst);
 } catch(e) {
-	// ERR_REPORT.report(e);
+	ERR_REPORT.report(e);
 }
