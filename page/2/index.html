@@ -67,6 +67,69 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-h5-post-message" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/06/12/h5-post-message/" class="article-date">
+  <time datetime="2015-06-12T03:09:57.000Z" itemprop="datePublished">6月 12 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/06/12/h5-post-message/">使用html5的postMessage传递消息</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="web开发常用场景"><a href="#web开发常用场景" class="headerlink" title="web开发常用场景"></a>web开发常用场景</h2><ol>
+<li><p>页面和其打开的新窗口的数据传递</p>
+</li>
+<li><p>多窗口之间消息传递</p>
+</li>
+<li><p>页面与嵌套的iframe消息传递</p>
+</li>
+<li><p>上面三个问题的跨域数据传递</p>
+</li>
+</ol>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><ol>
+<li>postMessage(data,origin)<br>data：要传递的数据(基本类型或对象)<br>origin：字符串参数，指明目标窗口的源，协议+主机+端口号[+URL]，URL会被忽略，所以可以不写，这个参数是为了安全考虑</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">window.postMessage(<span class="string">'myName'</span>,<span class="string">'http://kuscript.com/'</span>);</div></pre></td></tr></table></figure>
+<ol>
+<li>接收信息</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">window.addEventListener(<span class="string">'message'</span>,<span class="keyword">function</span>(e)&#123;</div><div class="line">    console.log(e);  // 消息对象</div><div class="line">    console.log(e.data);  // myName</div><div class="line">&#125;,<span class="literal">false</span>);</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://kuscript.com/2015/06/12/h5-post-message/" data-id="cisfo7buq0007zql9g4l6axse" class="article-share-link">Share</a>-->
+      <!-- Bino Yip baidu share start -->
+      <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
+      </div>
+      <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+      </script>
+      <!-- Bino Yip baidu share end -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postMessage/">postMessage</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/消息/">消息</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-es6-promise" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/04/13/es6-promise/" class="article-date">
@@ -96,7 +159,7 @@
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="http://kuscript.com/2015/04/13/es6-promise/" data-id="cirq5ln0g0006itl9slon7vx2" class="article-share-link">Share</a>-->
+      <!-- <a data-url="http://kuscript.com/2015/04/13/es6-promise/" data-id="cisfo7bul0004zql9ciaweklx" class="article-share-link">Share</a>-->
       <!-- Bino Yip baidu share start -->
       <div class="bdsharebuttonbox">
         <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
@@ -147,7 +210,7 @@
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="http://kuscript.com/2015/04/13/ie-mode-check/" data-id="cirq5ln0t000fitl9mbshfn7f" class="article-share-link">Share</a>-->
+      <!-- <a data-url="http://kuscript.com/2015/04/13/ie-mode-check/" data-id="cisfo7bvu001yzql9kn2ono3p" class="article-share-link">Share</a>-->
       <!-- Bino Yip baidu share start -->
       <div class="bdsharebuttonbox">
         <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
@@ -195,7 +258,7 @@
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="http://kuscript.com/2015/04/07/html5-shake-mobile/" data-id="cirq5ln0p000citl9dhgxwfs0" class="article-share-link">Share</a>-->
+      <!-- <a data-url="http://kuscript.com/2015/04/07/html5-shake-mobile/" data-id="cisfo7buz000czql9yhp1euxn" class="article-share-link">Share</a>-->
       <!-- Bino Yip baidu share start -->
       <div class="bdsharebuttonbox">
         <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
@@ -247,7 +310,7 @@
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="http://kuscript.com/2015/04/07/html5-canvas-scratch/" data-id="cirq5ln0n000aitl9pfkacqlw" class="article-share-link">Share</a>-->
+      <!-- <a data-url="http://kuscript.com/2015/04/07/html5-canvas-scratch/" data-id="cisfo7buv0009zql9liiu8jsw" class="article-share-link">Share</a>-->
       <!-- Bino Yip baidu share start -->
       <div class="bdsharebuttonbox">
         <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
@@ -259,64 +322,6 @@
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Canvas/">Canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/涂抹/">涂抹</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-flexible-case" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/03/05/flexible-case/" class="article-date">
-  <time datetime="2015-03-05T03:26:25.000Z" itemprop="datePublished">3月 5 2015</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/05/flexible-case/">移动端自适应方案</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>移动端自适应方案：</p>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>设置html的font-size样式，根据font-size值设置各元素，单位使用rem。</p>
-<h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><p>1.html头部设置meta<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"initial-scale=1.0,maximum-scale=1,width=device-width"</span>&gt;</div></pre></td></tr></table></figure></p>
-<p>2.头部引入flexible.js</p>
-<p>3.把视觉稿中的px转换成rem</p>
-<p>首先，假设视觉稿大小是<code>750</code>（iPhone6）。</p>
-<p>当前方案会把这3类视觉稿分成<code>100份</code>来看待（为了以后兼容vh，vw单位）。每一份被称为一个单位a。同时，1rem单位认定为10a。拿750的视觉稿举例：</p>
-<pre><code>1a = 7.5px
-1rem = 75px
-</code></pre><p>因此，对于视觉稿上的元素的尺寸换算，只需要<code>原始px值</code>除以<code>rem基准px值</code>即可。例如240px <em> 120px的元素，最后转换为3.2rem </em> 1.6rem。</p>
-<h2 id="字体不使用rem的方法"><a href="#字体不使用rem的方法" class="headerlink" title="字体不使用rem的方法"></a>字体不使用rem的方法</h2><p><a href="/page/flexible.html" title="flexible demo">DEMO示例</a></p>
-<p><a href="https://github.com/blackie4/lib.flexible" title="lib.flexible" target="_blank" rel="external">更多详细参考</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <!-- <a data-url="http://kuscript.com/2015/03/05/flexible-case/" data-id="cirq5ln0k0009itl992ce4k3a" class="article-share-link">Share</a>-->
-      <!-- Bino Yip baidu share start -->
-      <div class="bdsharebuttonbox">
-        <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
-      </div>
-      <script>
-        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-      </script>
-      <!-- Bino Yip baidu share end -->
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mobile/">mobile</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自适应/">自适应</a></li></ul>
 
     </footer>
   </div>

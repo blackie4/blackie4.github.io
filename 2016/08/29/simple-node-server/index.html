@@ -3,27 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Performance API | Bino&#39;s Blog</title>
+  <title>简单NODE的HTTP-SERVER服务器 | Bino&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="简介performance.timing表示一个页面事件（例如页面发送了请求）或者页面加载（例如当DOM开始加载），测量以毫秒的形式展示；支持浏览器: IE9+,Chrome11+,Firefox7+
-API列表
-performance.timing.navigationStart   当load/unload动作被触发时间
-performance.timing.redirectStart   页">
+  <meta name="description" content="npm安装http-server（-g 全局安装）:1npm install http-server -g
+当前目录输入命令行：1http-server
+输出结果：12345Starting up http-server, serving ./Available on:  http://127.0.0.1:8080  http://*.*.*.*:8080Hit CTRL-C to stop th">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Performance API">
-<meta property="og:url" content="http://kuscript.com/2015/10/08/Performance-API/index.html">
+<meta property="og:title" content="简单NODE的HTTP-SERVER服务器">
+<meta property="og:url" content="http://kuscript.com/2016/08/29/simple-node-server/index.html">
 <meta property="og:site_name" content="Bino's Blog">
-<meta property="og:description" content="简介performance.timing表示一个页面事件（例如页面发送了请求）或者页面加载（例如当DOM开始加载），测量以毫秒的形式展示；支持浏览器: IE9+,Chrome11+,Firefox7+
-API列表
-performance.timing.navigationStart   当load/unload动作被触发时间
-performance.timing.redirectStart   页">
-<meta property="og:updated_time" content="2015-10-08T09:52:24.000Z">
+<meta property="og:description" content="npm安装http-server（-g 全局安装）:1npm install http-server -g
+当前目录输入命令行：1http-server
+输出结果：12345Starting up http-server, serving ./Available on:  http://127.0.0.1:8080  http://*.*.*.*:8080Hit CTRL-C to stop th">
+<meta property="og:updated_time" content="2016-08-29T08:25:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Performance API">
-<meta name="twitter:description" content="简介performance.timing表示一个页面事件（例如页面发送了请求）或者页面加载（例如当DOM开始加载），测量以毫秒的形式展示；支持浏览器: IE9+,Chrome11+,Firefox7+
-API列表
-performance.timing.navigationStart   当load/unload动作被触发时间
-performance.timing.redirectStart   页">
+<meta name="twitter:title" content="简单NODE的HTTP-SERVER服务器">
+<meta name="twitter:description" content="npm安装http-server（-g 全局安装）:1npm install http-server -g
+当前目录输入命令行：1http-server
+输出结果：12345Starting up http-server, serving ./Available on:  http://127.0.0.1:8080  http://*.*.*.*:8080Hit CTRL-C to stop th">
   
     <link rel="alternative" href="/atom.xml" title="Bino&#39;s Blog" type="application/atom+xml">
   
@@ -75,10 +72,10 @@ performance.timing.redirectStart   页">
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Performance-API" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-simple-node-server" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/10/08/Performance-API/" class="article-date">
-  <time datetime="2015-10-08T09:34:25.000Z" itemprop="datePublished">10月 8 2015</time>
+    <a href="/2016/08/29/simple-node-server/" class="article-date">
+  <time datetime="2016-08-29T08:09:57.000Z" itemprop="datePublished">8月 29 2016</time>
 </a>
     
   </div>
@@ -89,7 +86,7 @@ performance.timing.redirectStart   页">
         
   
     <h1 class="article-title" itemprop="name">
-      Performance API
+      简单NODE的HTTP-SERVER服务器
     </h1>
   
 
@@ -97,21 +94,15 @@ performance.timing.redirectStart   页">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>performance.timing表示一个页面事件（例如页面发送了请求）或者页面加载（例如当DOM开始加载），测量以毫秒的形式展示；<br>支持浏览器: IE9+,Chrome11+,Firefox7+</p>
-<h2 id="API列表"><a href="#API列表" class="headerlink" title="API列表"></a>API列表</h2><ul>
-<li>performance.timing.navigationStart   当load/unload动作被触发时间</li>
-<li>performance.timing.redirectStart   页面重定向时的开始时间</li>
-<li>performance.timing.redirectEnd   页面重定向时的结束时间</li>
-<li>performance.timing.domComplete   页面DOM加载完时间</li>
-<li>performance.timing.responseStart   客户端收到从服务器端（或缓存、本地资源）响应回的第一个字节的数据的时刻</li>
-<li>performance.timing.responseEnd   客户端收到从服务器端（或缓存、本地资源）响应回的最后一个字节的数据的时刻</li>
-</ul>
-<h2 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h2><p>更多请查阅<a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigation_timing_API" target="_blank" rel="external">performance文档</a></p>
+        <p>npm安装http-server（-g 全局安装）:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install http-server -g</div></pre></td></tr></table></figure></p>
+<p>当前目录输入命令行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http-server</div></pre></td></tr></table></figure></p>
+<p>输出结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Starting up http-server, serving ./</div><div class="line">Available on:</div><div class="line">  http://127.0.0.1:8080</div><div class="line">  http://*.*.*.*:8080</div><div class="line">Hit CTRL-C to stop the server</div></pre></td></tr></table></figure></p>
+<p>访问 <a href="http://127.0.0.1:8080" target="_blank" rel="external">http://127.0.0.1:8080</a> 即可</p>
 
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="http://kuscript.com/2015/10/08/Performance-API/" data-id="cisfo7bu90000zql9ijkgbgt8" class="article-share-link">Share</a>-->
+      <!-- <a data-url="http://kuscript.com/2016/08/29/simple-node-server/" data-id="cisfrv6wd00046nl9h04s0qoa" class="article-share-link">Share</a>-->
       <!-- Bino Yip baidu share start -->
       <div class="bdsharebuttonbox">
         <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
@@ -122,7 +113,7 @@ performance.timing.redirectStart   页">
       <!-- Bino Yip baidu share end -->
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/console/">console</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/performance/">performance</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/timing/">timing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/性能优化/">性能优化</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/server/">server</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务器/">服务器</a></li></ul>
 
     </footer>
   </div>
@@ -130,19 +121,10 @@ performance.timing.redirectStart   页">
     
 <nav id="article-nav">
   
-    <a href="/2016/06/27/sticky-footer/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          粘连Footer的简单实现方式
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/06/12/h5-post-message/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/07/12/mac-git-guide/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">使用html5的postMessage传递消息</div>
+      <div class="article-nav-title">Mac Git ssh 配置指引</div>
     </a>
   
 </nav>
