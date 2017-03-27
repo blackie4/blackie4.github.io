@@ -25,7 +25,7 @@
 2、添加ssh查看~/.ssh目录下已生成的两个文件：
 私钥：id_rsa_1公钥：id_rsa_1.pub
 命令打开公钥，复制添加至">
-<meta property="og:updated_time" content="2016-07-12T07:15:51.000Z">
+<meta property="og:updated_time" content="2017-03-27T09:39:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac Git ssh 配置指引">
 <meta name="twitter:description" content="mac ssh配置：
@@ -119,13 +119,14 @@
 <p>命令打开公钥，复制添加至git站点</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat ~/.ssh/id_rsa_1.pub</div></pre></td></tr></table></figure>
 <h2 id="3、把私钥添加至git"><a href="#3、把私钥添加至git" class="headerlink" title="3、把私钥添加至git"></a>3、把私钥添加至git</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-add ~/.ssh/id_rsa_1</div></pre></td></tr></table></figure>
+<p>每次添加到的session中，电脑重启后便失效。<br>可以添加keychain，便永久有效了：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-add -K ~/.ssh/id_rsa_1</div></pre></td></tr></table></figure></p>
 <p>以上已经完成一个ssh key的添加了。</p>
 <p>ps：多个仓库重复1～3步骤即可</p>
 
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="http://kuscript.com/2016/07/12/mac-git-guide/" data-id="cisfo7bw70025zql98a19j83s" class="article-share-link">Share</a>-->
+      <!-- <a data-url="http://kuscript.com/2016/07/12/mac-git-guide/" data-id="cj0rx5vm5000fitl9fcv8f7eo" class="article-share-link">Share</a>-->
       <!-- Bino Yip baidu share start -->
       <div class="bdsharebuttonbox">
         <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
@@ -171,7 +172,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 Bino Yip<br>
+      &copy; 2017 Bino Yip<br>
       <a href="https://github.com/ken8203/hexo-theme-alberta" target="_blank">Alberta</a> by <a href="http://jaychung.tw" target="_blank">jaychung</a>. Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Thank <a href="http://subtlepatterns.com/" target="_blank">Subtlepatterns</a>
     </div>
   </div>
