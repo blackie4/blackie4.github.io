@@ -7,12 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="html、css、js、nodejs，前端开发、web开发、f2e">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Bino's Blog">
+<meta property="og:title" content="Bino&#39;s Blog">
 <meta property="og:url" content="http://kuscript.com/page/4/index.html">
-<meta property="og:site_name" content="Bino's Blog">
+<meta property="og:site_name" content="Bino&#39;s Blog">
 <meta property="og:description" content="html、css、js、nodejs，前端开发、web开发、f2e">
+<meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bino's Blog">
+<meta name="twitter:title" content="Bino&#39;s Blog">
 <meta name="twitter:description" content="html、css、js、nodejs，前端开发、web开发、f2e">
   
     <link rel="alternative" href="/atom.xml" title="Bino&#39;s Blog" type="application/atom+xml">
@@ -99,7 +100,7 @@
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="http://kuscript.com/2015/01/15/sublime-intall-sass-highlighting/" data-id="cj0rx5vmi000sitl9cfh9f12h" class="article-share-link">Share</a>-->
+      <!-- <a data-url="http://kuscript.com/2015/01/15/sublime-intall-sass-highlighting/" data-id="cj63cew2u000sg33v7gm78gxu" class="article-share-link">Share</a>-->
       <!-- Bino Yip baidu share start -->
       <div class="bdsharebuttonbox">
         <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
@@ -141,12 +142,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>函数节流的原理很简单：<br>    通过一个定时器，阻断连续重复的函数调用。 例如： onresize 或 onmousemove 事件监听函数。<br>由于在短时间内连续执行多次，这样频繁的操作DOM，对性能影响是很大的！<br>具体实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var processor = &#123;    </div><div class="line">  	timeoutId: null,      </div><div class="line">	performProcessing: <span class="function"><span class="title">function</span></span>()&#123;    </div><div class="line">		// 要执行的代码    </div><div class="line">	&#125;,    </div><div class="line"> 	process: <span class="function"><span class="title">function</span></span>()&#123;          </div><div class="line">		clearTimeout(this.timeoutId);        </div><div class="line"> 		this.timeoutId  = <span class="built_in">set</span>Timeout(<span class="function"><span class="title">function</span></span>()&#123;          </div><div class="line">			processor.performProcessing();          </div><div class="line">		&#125;, 100);  </div><div class="line"> 	&#125;  </div><div class="line">&#125;;</div><div class="line"></div><div class="line">//调用 </div><div class="line">processor.process();</div></pre></td></tr></table></figure></p>
+        <p>函数节流的原理很简单：<br>    通过一个定时器，阻断连续重复的函数调用。 例如： onresize 或 onmousemove 事件监听函数。<br>由于在短时间内连续执行多次，这样频繁的操作DOM，对性能影响是很大的！<br>具体实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var processor = &#123;    </div><div class="line">  	timeoutId: null,      </div><div class="line">	performProcessing: <span class="function"><span class="title">function</span></span>()&#123;    </div><div class="line">		// 要执行的代码    </div><div class="line">	&#125;,    </div><div class="line"> 	process: <span class="function"><span class="title">function</span></span>()&#123;          </div><div class="line">		clearTimeout(this.timeoutId);        </div><div class="line"> 		this.timeoutId  = setTimeout(<span class="function"><span class="title">function</span></span>()&#123;          </div><div class="line">			processor.performProcessing();          </div><div class="line">		&#125;, 100);  </div><div class="line"> 	&#125;  </div><div class="line">&#125;;</div><div class="line"></div><div class="line">//调用 </div><div class="line">processor.process();</div></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="http://kuscript.com/2013/12/08/js-economize-function/" data-id="cj0rx5vm9000kitl98xie24s1" class="article-share-link">Share</a>-->
+      <!-- <a data-url="http://kuscript.com/2013/12/08/js-economize-function/" data-id="cj63cew2j000hg33vai1b9b8t" class="article-share-link">Share</a>-->
       <!-- Bino Yip baidu share start -->
       <div class="bdsharebuttonbox">
         <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
@@ -202,7 +203,7 @@
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="http://kuscript.com/2013/09/02/js-jsonp-php/" data-id="cj0rx5vme000oitl9nsf5l8io" class="article-share-link">Share</a>-->
+      <!-- <a data-url="http://kuscript.com/2013/09/02/js-jsonp-php/" data-id="cj63cew2l000kg33v7dnl9dxa" class="article-share-link">Share</a>-->
       <!-- Bino Yip baidu share start -->
       <div class="bdsharebuttonbox">
         <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
