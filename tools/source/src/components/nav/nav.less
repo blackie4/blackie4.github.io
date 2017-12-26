@@ -1,0 +1,42 @@
+.nav-wrap {
+  width: 200px;
+  .nav-ul {
+  	position: fixed;
+    left: 0;
+    top: 50px;
+    width: 200px;
+    height: 100%;
+    background-color: #3a3f51;
+    li {
+    	a {
+	    	color: #a6a8b1;
+	    	position: relative;
+		    display: block;
+		    padding: 10px 20px;
+		    font-weight: 400;
+		    text-transform: none;
+		    text-decoration: none;
+		    -webkit-transition: background-color .2s ease-in-out 0s;
+		    transition: background-color .2s ease-in-out 0s;
+		    i.icon {
+		    	position: relative;
+			    float: left;
+			    width: 40px;
+			    margin: -10px -10px;
+			    margin-right: 5px;
+			    overflow: hidden;
+			    line-height: 40px;
+			    text-align: center;
+		    }
+	    }
+    	&.active,
+	    &:hover,
+	    &.focus {
+	    	a {
+	    		color: #fff;
+	  			background-color: #2e3344;
+	    	}
+	    }
+    }
+  }
+}

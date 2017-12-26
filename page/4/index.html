@@ -16,8 +16,6 @@
 <meta name="twitter:title" content="Bino&#39;s Blog">
 <meta name="twitter:description" content="html、css、js、nodejs，前端开发、web开发、f2e">
   
-    <link rel="alternative" href="/atom.xml" title="Bino&#39;s Blog" type="application/atom+xml">
-  
   
     <!-- <link rel="shortcut icon" href="favicon.ico">  -->
     <!-- Bino Yip  -->
@@ -57,9 +55,9 @@
         
           <li><a href="/about"><i class="fa fa-user icon-setting"></i></a></li>
         
+          <li><a href="/tools"><i class="fa fa-wrench icon-setting"></i></a></li>
         
-          <li><a href="/atom.xml"><i class="fa fa-rss %> icon-setting"></i></a></li>
-        
+        <!--  -->
         </ul>
       </nav>
     </div>
@@ -95,12 +93,12 @@
 <li>关闭sublime，重新打开.scss文件</li>
 <li>Menu &gt; View &gt; Syntax &gt; Open all with current extension as… &gt; Sass</li>
 </ol>
-<p><a href="http://lexsheehan.blogspot.com/2014/05/scss-syntax-highlighting-in-sublime-text.html" target="_blank" rel="external">原文参考</a></p>
+<p><a href="http://lexsheehan.blogspot.com/2014/05/scss-syntax-highlighting-in-sublime-text.html" target="_blank" rel="noopener">原文参考</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="http://kuscript.com/2015/01/15/sublime-intall-sass-highlighting/" data-id="cj63ehzke000t173vifhq6v1z" class="article-share-link">Share</a>-->
+      <!-- <a data-url="http://kuscript.com/2015/01/15/sublime-intall-sass-highlighting/" data-id="cjbnnd2wm0012tq3vbj5zlt2s" class="article-share-link">Share</a>-->
       <!-- Bino Yip baidu share start -->
       <div class="bdsharebuttonbox">
         <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
@@ -142,12 +140,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>函数节流的原理很简单：<br>    通过一个定时器，阻断连续重复的函数调用。 例如： onresize 或 onmousemove 事件监听函数。<br>由于在短时间内连续执行多次，这样频繁的操作DOM，对性能影响是很大的！<br>具体实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var processor = &#123;    </div><div class="line">  	timeoutId: null,      </div><div class="line">	performProcessing: <span class="function"><span class="title">function</span></span>()&#123;    </div><div class="line">		// 要执行的代码    </div><div class="line">	&#125;,    </div><div class="line"> 	process: <span class="function"><span class="title">function</span></span>()&#123;          </div><div class="line">		clearTimeout(this.timeoutId);        </div><div class="line"> 		this.timeoutId  = setTimeout(<span class="function"><span class="title">function</span></span>()&#123;          </div><div class="line">			processor.performProcessing();          </div><div class="line">		&#125;, 100);  </div><div class="line"> 	&#125;  </div><div class="line">&#125;;</div><div class="line"></div><div class="line">//调用 </div><div class="line">processor.process();</div></pre></td></tr></table></figure></p>
+        <p>函数节流的原理很简单：<br>    通过一个定时器，阻断连续重复的函数调用。 例如： onresize 或 onmousemove 事件监听函数。<br>由于在短时间内连续执行多次，这样频繁的操作DOM，对性能影响是很大的！<br>具体实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var processor = &#123;    </span><br><span class="line">  	timeoutId: null,      </span><br><span class="line">	performProcessing: <span class="function"><span class="title">function</span></span>()&#123;    </span><br><span class="line">		// 要执行的代码    </span><br><span class="line">	&#125;,    </span><br><span class="line"> 	process: <span class="function"><span class="title">function</span></span>()&#123;          </span><br><span class="line">		clearTimeout(this.timeoutId);        </span><br><span class="line"> 		this.timeoutId  = setTimeout(<span class="function"><span class="title">function</span></span>()&#123;          </span><br><span class="line">			processor.performProcessing();          </span><br><span class="line">		&#125;, 100);  </span><br><span class="line"> 	&#125;  </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">//调用 </span><br><span class="line">processor.process();</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="http://kuscript.com/2013/12/08/js-economize-function/" data-id="cj63ehzk0000j173vyqi326zx" class="article-share-link">Share</a>-->
+      <!-- <a data-url="http://kuscript.com/2013/12/08/js-economize-function/" data-id="cjbnnd2wb000ttq3vfdz0t036" class="article-share-link">Share</a>-->
       <!-- Bino Yip baidu share start -->
       <div class="bdsharebuttonbox">
         <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
@@ -192,10 +190,10 @@
         <p>JSONP(JSON with padding),由于同源策略的限制，XmlHttpRequest只允许请求当前源（域名、协议、端口）的资源,不允许跨域请求数据!</p>
 <ol>
 <li><p>JSONP即是一种跨域请求的方法: 利用<code>&lt;script&gt;</code>标签实现跨域:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">	<span class="keyword">function</span> showJsonp(jsons)&#123;</div><div class="line">	 alert(jsons);</div><div class="line">	&#125;</div><div class="line">	var JSONP = document.createElement(<span class="string">"script"</span>) ;</div><div class="line">	JSONP.type = <span class="string">"text/javascript"</span>;</div><div class="line">	JSONP.src = <span class="string">"http://kuscript.com/zp/jsonp.php?callback=showJsonp"</span>;</div><div class="line">	//在head之后添加js文件</div><div class="line">	document.getElementsByTagName(<span class="string">"head"</span>)[0].appendChild(JSONP);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	<span class="keyword">function</span> showJsonp(jsons)&#123;</span><br><span class="line">	 alert(jsons);</span><br><span class="line">	&#125;</span><br><span class="line">	var JSONP = document.createElement(<span class="string">"script"</span>) ;</span><br><span class="line">	JSONP.type = <span class="string">"text/javascript"</span>;</span><br><span class="line">	JSONP.src = <span class="string">"http://kuscript.com/zp/jsonp.php?callback=showJsonp"</span>;</span><br><span class="line">	//在head之后添加js文件</span><br><span class="line">	document.getElementsByTagName(<span class="string">"head"</span>)[0].appendChild(JSONP);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>jsonp.php</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line"><span class="built_in">echo</span> <span class="variable">$_GET</span>[<span class="string">"callback"</span>].<span class="string">"('hello,world,Ye')"</span>;</div><div class="line">?&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$_GET</span>[<span class="string">"callback"</span>].<span class="string">"('hello,world,Ye')"</span>;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>注意点: 动态创建的script标签应该在 显示函数(showJsonp) 之后</p>
@@ -203,7 +201,7 @@
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="http://kuscript.com/2013/09/02/js-jsonp-php/" data-id="cj63ehzk7000n173v3p8y6snj" class="article-share-link">Share</a>-->
+      <!-- <a data-url="http://kuscript.com/2013/09/02/js-jsonp-php/" data-id="cjbnnd2w6000ntq3viwyz8sdq" class="article-share-link">Share</a>-->
       <!-- Bino Yip baidu share start -->
       <div class="bdsharebuttonbox">
         <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>

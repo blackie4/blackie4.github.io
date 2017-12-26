@@ -18,8 +18,6 @@
 <meta name="twitter:title" content="移动端自适应方案">
 <meta name="twitter:description" content="移动端自适应方案： 原理设置html的font-size样式，根据font-size值设置各元素，单位使用rem。 简单使用1.html头部设置meta1&amp;lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1.0,maximum-scale=1,width=device-width&quot;&amp;gt; 2.头部引入flexible.js 3.把视觉稿中的px转换成">
   
-    <link rel="alternative" href="/atom.xml" title="Bino&#39;s Blog" type="application/atom+xml">
-  
   
     <!-- <link rel="shortcut icon" href="favicon.ico">  -->
     <!-- Bino Yip  -->
@@ -59,9 +57,9 @@
         
           <li><a href="/about"><i class="fa fa-user icon-setting"></i></a></li>
         
+          <li><a href="/tools"><i class="fa fa-wrench icon-setting"></i></a></li>
         
-          <li><a href="/atom.xml"><i class="fa fa-rss %> icon-setting"></i></a></li>
-        
+        <!--  -->
         </ul>
       </nav>
     </div>
@@ -92,7 +90,7 @@
       
         <p>移动端自适应方案：</p>
 <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>设置html的font-size样式，根据font-size值设置各元素，单位使用rem。</p>
-<h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><p>1.html头部设置meta<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"initial-scale=1.0,maximum-scale=1,width=device-width"</span>&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><p>1.html头部设置meta<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"initial-scale=1.0,maximum-scale=1,width=device-width"</span>&gt;</span><br></pre></td></tr></table></figure></p>
 <p>2.头部引入flexible.js</p>
 <p>3.把视觉稿中的px转换成rem</p>
 <p>首先，假设视觉稿大小是<code>750</code>（iPhone6）。</p>
@@ -101,12 +99,12 @@
 1rem = 75px
 </code></pre><p>因此，对于视觉稿上的元素的尺寸换算，只需要<code>原始px值</code>除以<code>rem基准px值</code>即可。例如240px <em> 120px的元素，最后转换为3.2rem </em> 1.6rem。</p>
 <h2 id="字体不使用rem的方法"><a href="#字体不使用rem的方法" class="headerlink" title="字体不使用rem的方法"></a>字体不使用rem的方法</h2><p><a href="/page/flexible.html" title="flexible demo">DEMO示例</a></p>
-<p><a href="https://github.com/blackie4/lib.flexible" title="lib.flexible" target="_blank" rel="external">更多详细参考</a></p>
+<p><a href="https://github.com/blackie4/lib.flexible" title="lib.flexible" target="_blank" rel="noopener">更多详细参考</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="http://kuscript.com/2015/03/05/flexible-case/" data-id="cj63ehzjk0007173vzizobvpp" class="article-share-link">Share</a>-->
+      <!-- <a data-url="http://kuscript.com/2015/03/05/flexible-case/" data-id="cjbnnd2v7000atq3vsmo111cb" class="article-share-link">Share</a>-->
       <!-- Bino Yip baidu share start -->
       <div class="bdsharebuttonbox">
         <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>

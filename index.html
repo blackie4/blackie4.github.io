@@ -16,8 +16,6 @@
 <meta name="twitter:title" content="Bino&#39;s Blog">
 <meta name="twitter:description" content="html、css、js、nodejs，前端开发、web开发、f2e">
   
-    <link rel="alternative" href="/atom.xml" title="Bino&#39;s Blog" type="application/atom+xml">
-  
   
     <!-- <link rel="shortcut icon" href="favicon.ico">  -->
     <!-- Bino Yip  -->
@@ -57,9 +55,9 @@
         
           <li><a href="/about"><i class="fa fa-user icon-setting"></i></a></li>
         
+          <li><a href="/tools"><i class="fa fa-wrench icon-setting"></i></a></li>
         
-          <li><a href="/atom.xml"><i class="fa fa-rss %> icon-setting"></i></a></li>
-        
+        <!--  -->
         </ul>
       </nav>
     </div>
@@ -90,15 +88,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>npm安装http-server（-g 全局安装）:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install http-server -g</div></pre></td></tr></table></figure></p>
-<p>当前目录输入命令行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http-server</div></pre></td></tr></table></figure></p>
-<p>输出结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Starting up http-server, serving ./</div><div class="line">Available on:</div><div class="line">  http://127.0.0.1:8080</div><div class="line">  http://*.*.*.*:8080</div><div class="line">Hit CTRL-C to stop the server</div></pre></td></tr></table></figure></p>
-<p>访问 <a href="http://127.0.0.1:8080" target="_blank" rel="external">http://127.0.0.1:8080</a> 即可</p>
+        <p>npm安装http-server（-g 全局安装）:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install http-server -g</span><br></pre></td></tr></table></figure></p>
+<p>当前目录输入命令行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http-server</span><br></pre></td></tr></table></figure></p>
+<p>输出结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Starting up http-server, serving ./</span><br><span class="line">Available on:</span><br><span class="line">  http://127.0.0.1:8080</span><br><span class="line">  http://*.*.*.*:8080</span><br><span class="line">Hit CTRL-C to stop the server</span><br></pre></td></tr></table></figure></p>
+<p>访问 <a href="http://127.0.0.1:8080" target="_blank" rel="noopener">http://127.0.0.1:8080</a> 即可</p>
 
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="http://kuscript.com/2016/08/29/simple-node-server/" data-id="cj63ehzkk000x173v36oxgs1b" class="article-share-link">Share</a>-->
+      <!-- <a data-url="http://kuscript.com/2016/08/29/simple-node-server/" data-id="cjbnnd2wk0011tq3vit6vy9le" class="article-share-link">Share</a>-->
       <!-- Bino Yip baidu share start -->
       <div class="bdsharebuttonbox">
         <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
@@ -142,22 +140,22 @@
       
         <p>mac ssh配置：</p>
 <h2 id="1、生成ssh"><a href="#1、生成ssh" class="headerlink" title="1、生成ssh"></a>1、生成ssh</h2><p>输入命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C <span class="string">"xxx@xxx.com"</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"xxx@xxx.com"</span></span><br></pre></td></tr></table></figure>
 <p>提示保存ssh key文件名，输入文件名：~/.ssh/id_rsa_1  （ps：文件名前面是路径, 1可以自定义名称）</p>
 <p>然后输入ssh文件密码</p>
 <h2 id="2、添加ssh"><a href="#2、添加ssh" class="headerlink" title="2、添加ssh"></a>2、添加ssh</h2><p>查看~/.ssh目录下已生成的两个文件：</p>
 <p>私钥：id_rsa_1<br>公钥：id_rsa_1.pub</p>
 <p>命令打开公钥，复制添加至git站点</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat ~/.ssh/id_rsa_1.pub</div></pre></td></tr></table></figure>
-<h2 id="3、把私钥添加至git"><a href="#3、把私钥添加至git" class="headerlink" title="3、把私钥添加至git"></a>3、把私钥添加至git</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-add ~/.ssh/id_rsa_1</div></pre></td></tr></table></figure>
-<p>每次添加到的session中，电脑重启后便失效。<br>可以添加keychain，便永久有效了：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-add -K ~/.ssh/id_rsa_1</div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa_1.pub</span><br></pre></td></tr></table></figure>
+<h2 id="3、把私钥添加至git"><a href="#3、把私钥添加至git" class="headerlink" title="3、把私钥添加至git"></a>3、把私钥添加至git</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa_1</span><br></pre></td></tr></table></figure>
+<p>每次添加到的session中，电脑重启后便失效。<br>可以添加keychain，便永久有效了：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add -K ~/.ssh/id_rsa_1</span><br></pre></td></tr></table></figure></p>
 <p>以上已经完成一个ssh key的添加了。</p>
 <p>ps：多个仓库重复1～3步骤即可</p>
 
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="http://kuscript.com/2016/07/12/mac-git-guide/" data-id="cj63ehzk5000m173vv6n4quwk" class="article-share-link">Share</a>-->
+      <!-- <a data-url="http://kuscript.com/2016/07/12/mac-git-guide/" data-id="cjbnnd2wg000ytq3vyt56l3ws" class="article-share-link">Share</a>-->
       <!-- Bino Yip baidu share start -->
       <div class="bdsharebuttonbox">
         <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
@@ -204,24 +202,24 @@
 <h2 id="HTTP-缓存头"><a href="#HTTP-缓存头" class="headerlink" title="HTTP 缓存头"></a>HTTP 缓存头</h2><p>这有两个基本的缓存头，Cache-Control 和 Expires。</p>
 <h3 id="设置-Cache-Control-值"><a href="#设置-Cache-Control-值" class="headerlink" title="设置 Cache-Control 值"></a>设置 Cache-Control 值</h3><ol>
 <li><p>public 资源不仅可以被用户端浏览器缓存，还可以被能够给其他众多用户提供服务的中间代理器缓存</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Cache-Control:public</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cache-Control:public</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>private 资源会被中间代理器忽略，只能够被客户端缓存</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Cache-Control:private</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cache-Control:private</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Cache-Control 头部的值是一个复合值，既表明了资源是 public 还是 private ,还表明了它能够缓存的时间的最大值，在它被认为过时之前。max-age 设置了一个时间跨度，表示缓存这些资源多长时间。（以秒计算）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Cache-Control:public, max-age=31536000</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cache-Control:public, max-age=31536000</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>当 Cache-Control 头部打开客户端缓存，设置一个资源的 max-age 时，Expires 头部被用来确定一个具体的时间点，到时间点时缓存的资源将会失效。</p>
 <h3 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h3><p>伴随着 Cache-Control 头部的设置，Expires只是设置一个缓存资源失效的日期。浏览器将会从这个日期提前请求这个资源的新副本。在那个日期之前，浏览器使用的是本地缓存副本：</p>
 <p>注意：如果 Expires 和 max-age 同时都被设置了，那么优先考虑 max-age </p>
-<p><a href="https://github.com/lindazhang102/Personal-Blog/blob/master/http%20cache.md" title="http cache" target="_blank" rel="external">引用</a></p>
+<p><a href="https://github.com/lindazhang102/Personal-Blog/blob/master/http%20cache.md" title="http cache" target="_blank" rel="noopener">引用</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="http://kuscript.com/2016/06/27/http-cache/" data-id="cj63ehzjw000g173vwwst3vrh" class="article-share-link">Share</a>-->
+      <!-- <a data-url="http://kuscript.com/2016/06/27/http-cache/" data-id="cjbnnd2vi000ftq3vrjoovq69" class="article-share-link">Share</a>-->
       <!-- Bino Yip baidu share start -->
       <div class="bdsharebuttonbox">
         <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
@@ -265,13 +263,13 @@
       
         <p>粘连 footer 的目的是让footer模块在内容高度小于窗口高度时footer类似positon fixed在底部；<br>当内容高度大于窗口高度时footer类似positon static跟随内容区域后面</p>
 <p>这里介绍的方法主要是使用结构和样式去实现，而并不会使用js计算高度</p>
-<h2 id="方案一：-在-footer-上用负的-margin-top"><a href="#方案一：-在-footer-上用负的-margin-top" class="headerlink" title="方案一： 在 footer 上用负的 margin-top"></a>方案一： 在 footer 上用负的 margin-top</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">// 结构</div><div class="line"> 	&lt;body&gt;</div><div class="line">  &lt;div class=<span class="string">"content"</span>&gt;</div><div class="line">    &lt;div class=<span class="string">"content-inner"</span>&gt;</div><div class="line">      content</div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">  &lt;footer class=<span class="string">"footer"</span>&gt;&lt;/footer&gt;</div><div class="line">&lt;/body&gt;</div><div class="line"></div><div class="line">// 样式</div><div class="line">html, body &#123;</div><div class="line">	height: 100%;</div><div class="line">	margin: 0;</div><div class="line">&#125;</div><div class="line">.content &#123;</div><div class="line">	min-height: 100%;</div><div class="line">&#125;</div><div class="line">.content-inner &#123;</div><div class="line">	padding: 20px;</div><div class="line">	padding-bottom: 50px;</div><div class="line">&#125;</div><div class="line">.footer &#123;</div><div class="line">	height: 50px;</div><div class="line">	margin-top: -50px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="方案一：-在-footer-上用负的-margin-top"><a href="#方案一：-在-footer-上用负的-margin-top" class="headerlink" title="方案一： 在 footer 上用负的 margin-top"></a>方案一： 在 footer 上用负的 margin-top</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// 结构</span><br><span class="line"> 	&lt;body&gt;</span><br><span class="line">  &lt;div class=<span class="string">"content"</span>&gt;</span><br><span class="line">    &lt;div class=<span class="string">"content-inner"</span>&gt;</span><br><span class="line">      content</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;footer class=<span class="string">"footer"</span>&gt;&lt;/footer&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">// 样式</span><br><span class="line">html, body &#123;</span><br><span class="line">	height: 100%;</span><br><span class="line">	margin: 0;</span><br><span class="line">&#125;</span><br><span class="line">.content &#123;</span><br><span class="line">	min-height: 100%;</span><br><span class="line">&#125;</span><br><span class="line">.content-inner &#123;</span><br><span class="line">	padding: 20px;</span><br><span class="line">	padding-bottom: 50px;</span><br><span class="line">&#125;</span><br><span class="line">.footer &#123;</span><br><span class="line">	height: 50px;</span><br><span class="line">	margin-top: -50px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><a href="/page/footer.html" title="flex footer">DEMO示例</a></p>
-<h2 id="方案二：-在-wrapper-上用负的-margin-bottom"><a href="#方案二：-在-wrapper-上用负的-margin-bottom" class="headerlink" title="方案二： 在 wrapper 上用负的 margin-bottom"></a>方案二： 在 wrapper 上用负的 margin-bottom</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">// 结构</div><div class="line">   &lt;body&gt;</div><div class="line">&lt;div class=<span class="string">"wrapper"</span>&gt;</div><div class="line"></div><div class="line">    content</div><div class="line"></div><div class="line">	&lt;div class=<span class="string">"push"</span>&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;footer class=<span class="string">"footer"</span>&gt;&lt;/footer&gt;</div><div class="line">&lt;/body&gt;</div><div class="line"></div><div class="line">// 样式</div><div class="line">html, body &#123;</div><div class="line">	height: 100%;</div><div class="line">	margin: 0;</div><div class="line">&#125;</div><div class="line">.wrapper &#123;</div><div class="line">	min-height: 100%;</div><div class="line">	margin-bottom: -50px;</div><div class="line">&#125;</div><div class="line">.footer, .push &#123;</div><div class="line">	height: 50px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="方案二：-在-wrapper-上用负的-margin-bottom"><a href="#方案二：-在-wrapper-上用负的-margin-bottom" class="headerlink" title="方案二： 在 wrapper 上用负的 margin-bottom"></a>方案二： 在 wrapper 上用负的 margin-bottom</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// 结构</span><br><span class="line">   &lt;body&gt;</span><br><span class="line">&lt;div class=<span class="string">"wrapper"</span>&gt;</span><br><span class="line"></span><br><span class="line">    content</span><br><span class="line"></span><br><span class="line">	&lt;div class=<span class="string">"push"</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;footer class=<span class="string">"footer"</span>&gt;&lt;/footer&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">// 样式</span><br><span class="line">html, body &#123;</span><br><span class="line">	height: 100%;</span><br><span class="line">	margin: 0;</span><br><span class="line">&#125;</span><br><span class="line">.wrapper &#123;</span><br><span class="line">	min-height: 100%;</span><br><span class="line">	margin-bottom: -50px;</span><br><span class="line">&#125;</span><br><span class="line">.footer, .push &#123;</span><br><span class="line">	height: 50px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="http://kuscript.com/2016/06/27/sticky-footer/" data-id="cj63ehzk9000p173vjpmvwcp8" class="article-share-link">Share</a>-->
+      <!-- <a data-url="http://kuscript.com/2016/06/27/sticky-footer/" data-id="cjbnnd2we000wtq3veg3e6e0o" class="article-share-link">Share</a>-->
       <!-- Bino Yip baidu share start -->
       <div class="bdsharebuttonbox">
         <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
@@ -322,12 +320,12 @@
 <li>performance.timing.responseStart   客户端收到从服务器端（或缓存、本地资源）响应回的第一个字节的数据的时刻</li>
 <li>performance.timing.responseEnd   客户端收到从服务器端（或缓存、本地资源）响应回的最后一个字节的数据的时刻</li>
 </ul>
-<h2 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h2><p>更多请查阅<a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigation_timing_API" target="_blank" rel="external">performance文档</a></p>
+<h2 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h2><p>更多请查阅<a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigation_timing_API" target="_blank" rel="noopener">performance文档</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="http://kuscript.com/2015/10/08/Performance-API/" data-id="cj63ehzjo0009173v8pprmjd7" class="article-share-link">Share</a>-->
+      <!-- <a data-url="http://kuscript.com/2015/10/08/Performance-API/" data-id="cjbnnd2up0003tq3vswdg8ogc" class="article-share-link">Share</a>-->
       <!-- Bino Yip baidu share start -->
       <div class="bdsharebuttonbox">
         <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>

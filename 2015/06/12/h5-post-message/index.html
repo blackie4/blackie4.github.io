@@ -18,8 +18,6 @@
 <meta name="twitter:title" content="使用html5的postMessage传递消息">
 <meta name="twitter:description" content="web开发常用场景 页面和其打开的新窗口的数据传递  多窗口之间消息传递  页面与嵌套的iframe消息传递  上面三个问题的跨域数据传递   使用方法 postMessage(data,origin)data：要传递的数据(基本类型或对象)origin：字符串参数，指明目标窗口的源，协议+主机+端口号[+URL]，URL会被忽略，所以可以不写，这个参数是为了安全考虑  1window.postM">
   
-    <link rel="alternative" href="/atom.xml" title="Bino&#39;s Blog" type="application/atom+xml">
-  
   
     <!-- <link rel="shortcut icon" href="favicon.ico">  -->
     <!-- Bino Yip  -->
@@ -59,9 +57,9 @@
         
           <li><a href="/about"><i class="fa fa-user icon-setting"></i></a></li>
         
+          <li><a href="/tools"><i class="fa fa-wrench icon-setting"></i></a></li>
         
-          <li><a href="/atom.xml"><i class="fa fa-rss %> icon-setting"></i></a></li>
-        
+        <!--  -->
         </ul>
       </nav>
     </div>
@@ -103,15 +101,15 @@
 <h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><ol>
 <li>postMessage(data,origin)<br>data：要传递的数据(基本类型或对象)<br>origin：字符串参数，指明目标窗口的源，协议+主机+端口号[+URL]，URL会被忽略，所以可以不写，这个参数是为了安全考虑</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">window.postMessage(<span class="string">'myName'</span>,<span class="string">'http://kuscript.com/'</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.postMessage(<span class="string">'myName'</span>,<span class="string">'http://kuscript.com/'</span>);</span><br></pre></td></tr></table></figure>
 <ol>
 <li>接收信息</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">window.addEventListener(<span class="string">'message'</span>,<span class="keyword">function</span>(e)&#123;</div><div class="line">    console.log(e);  // 消息对象</div><div class="line">    console.log(e.data);  // myName</div><div class="line">&#125;,<span class="literal">false</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">window.addEventListener(<span class="string">'message'</span>,<span class="keyword">function</span>(e)&#123;</span><br><span class="line">    console.log(e);  // 消息对象</span><br><span class="line">    console.log(e.data);  // myName</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="http://kuscript.com/2015/06/12/h5-post-message/" data-id="cj63ehzju000e173vssz4hs50" class="article-share-link">Share</a>-->
+      <!-- <a data-url="http://kuscript.com/2015/06/12/h5-post-message/" data-id="cjbnnd2w9000qtq3vz4tb8tnu" class="article-share-link">Share</a>-->
       <!-- Bino Yip baidu share start -->
       <div class="bdsharebuttonbox">
         <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a>
